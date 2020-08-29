@@ -2,10 +2,10 @@ import {Request, Response} from 'express';
 
 import pool from '../database'
 
-class InicioController{
+class LogController{
 
     public async list (req: Request, res: Response){
-        const inicio = await pool.query('SELECT * FROM Estudiante', (error, results) => {
+        const inicio = await pool.query('SELECT * FROM usuarios', (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
@@ -80,5 +80,5 @@ class InicioController{
 
 }
 
-const inicioController = new InicioController();
-export default inicioController;
+const logController = new LogController();
+export default logController;

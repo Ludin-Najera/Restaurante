@@ -3,10 +3,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import indexroutes from './routes/indexroutes';
-import inroutes from './routes/inroutes';
-import catedraticoRoutes from './routes/catedraticoRoutes';
-import cursoRoutes from './routes/cursoRoutes';
-import asigacionRoutes from './routes/asignacionRoutes';
+import logroutes from './routes/logroutes';
+
 
 class Server{
 
@@ -29,12 +27,7 @@ class Server{
     routes(): void {
 
         this.app.use('/', indexroutes);
-        this.app.use('/inicio', inroutes);
-        this.app.use('/api/catedratico',catedraticoRoutes);
-        this.app.use('/api/curso',cursoRoutes);
-        this.app.use('/api/asignacion',asigacionRoutes);
-
-
+        this.app.use('/api/log', logroutes);
     }
 
     start(): void{
