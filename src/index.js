@@ -1,0 +1,38 @@
+const express = require('express');
+const morgan = require('morgan');
+const exphabs = require('express-handlebars');
+const path = require('path');
+
+//iniciando express
+const app = express();
+
+//configuraciones
+app.set('port', process.env.PORT || 4000);
+app.set('views', path.join(__dirname, 'views'));
+app.engine('.hbs', exphbs({
+    defaultLayout: 'main',
+    layoutsDir: path.join(app.get('views'), 'layouts'), 
+    partialsDir: path.join(app.get('views'), 'partials'),
+    extname: '.hbs',
+    helpers: require('./lib/handlebars')
+}));
+app.set('view engine', '.hbs');
+
+//funciones Middlewares
+app.use(morgan('dev'));
+
+//variables globales
+
+
+//rutas
+app.use(require('./routes/index.js'));
+ 
+
+//public
+
+
+//iniciando servidor
+app.listen(app.get('port'), () => {
+    console.log('Servidor en puerto', app.get('port'));
+});
+
