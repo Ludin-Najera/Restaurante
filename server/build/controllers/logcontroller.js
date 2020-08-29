@@ -1,6 +1,7 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
         function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
@@ -30,30 +31,38 @@ class LogController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { ide } = req.params;
-            yield database_1.default.query('UPDATE estudiante SET ? WHERE IdE = ?', [req.body, ide], (error, results) => {
-                //if (error) {
-                //  console.log(error);
-                //  res.status(500).json({status: 'error'});
-                //} else {
-                //  res.status(200).json(results);
-                res.json({ message: 'Registro Actualizado' });
-                // }
+            const { id } = req.params;
+            const actualiza = yield database_1.default.query('UPDATE usuarios set ? WHERE idusuarios= ?', [req.body, id], (error, results) => {
+                if (error) {
+                    console.log(error);
+                    res.status(500).json({ status: 'error' });
+                }
+                else {
+                    res.status(200).json(results);
+                }
             });
-            //res.json({text: 'Actualizando Registro' + req.params.ide});
+            res.json({ Text: 'Los datos fueron actualizados' });
         });
     }
     create(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO estudiante set ?', [req.body]);
-            console.log(req.body);
-            res.json({ message: 'Registro Creado' });
+        const { nombre, tipousuario, alias, pass } = req.body;
+        const newLink = {
+            nombre,
+            tipousuario,
+            alias, pass
+        };
+        database_1.default.query('INSERT INTO usuarios  set ?', [newLink], (error, results, fields) => {
+            if (error) {
+                console.log(error);
+                return res.status(500).send(error);
+            }
+            return res.status(200).send('usuario guardado');
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { ide } = req.params;
-            yield database_1.default.query('DELETE FROM estudiante WHERE IdE = ?', [ide], (error, results) => {
+            const { id } = req.params;
+            yield database_1.default.query('DELETE FROM usuarios WHERE idusuarios = ?', [id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -68,7 +77,7 @@ class LogController {
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM Estudiante WHERE IdE= ?', [id], (error, results) => {
+            const carga = yield database_1.default.query('SELECT * FROM usuarios WHERE idusuarios= ?', [id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });

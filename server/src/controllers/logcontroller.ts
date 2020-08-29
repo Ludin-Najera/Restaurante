@@ -18,32 +18,46 @@ class LogController{
 
     }
 
-    public async update (req: Request, res: Response): Promise<void>{
-        const { ide } = req.params;
-        await pool.query('UPDATE estudiante SET ? WHERE IdE = ?', [req.body, ide], (error, results) => {
-            //if (error) {
-            //  console.log(error);
-            //  res.status(500).json({status: 'error'});
-            //} else {
-            //  res.status(200).json(results);
-              res.json({message: 'Registro Actualizado'})
-           // }
-          });
-
-        //res.json({text: 'Actualizando Registro' + req.params.ide});
+    public async update (req: Request, res: Response){
+      const {id}=req.params;
+      const actualiza = await  pool.query('UPDATE usuarios set ? WHERE idusuarios= ?',[req.body,id] ,(error, results) => {
+        if (error) {
+          console.log(error);
+          res.status(500).json({status: 'error'});
+        } else {
+          res.status(200).json(results);
+        }
+      });
+      res.json({Text: 'Los datos fueron actualizados'})
 
     }
 
-    public async create (req: Request, res: Response): Promise<void> {
-        await pool.query('INSERT INTO estudiante set ?', [req.body],);
-        console.log(req.body);
-        res.json({message: 'Registro Creado'});
+    public  create (req: Request, res: Response){
+      const {nombre, tipousuario, alias, pass} = req.body;
+      const newLink={
+            nombre,
+            tipousuario,
+            alias,pass
+      };
+
+       pool.query('INSERT INTO usuarios  set ?', [newLink],(error, results, fields) =>{
+       if(error){
+         console.log(error);
+         return res.status(500).send(error);
+
+       }
+
+       return res.status(200).send('usuario guardado');
+
+      });
+      
+
     }
 
     public async delete (req: Request, res: Response): Promise<void>{
 
-        const { ide } = req.params;
-        await pool.query('DELETE FROM estudiante WHERE IdE = ?', [ide], (error, results) => {
+        const { id } = req.params;
+        await pool.query('DELETE FROM usuarios WHERE idusuarios = ?', [id], (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
@@ -57,7 +71,7 @@ class LogController{
     public async getone (req: Request, res: Response) {
 
       const {id}=req.params;
-      const carga = await  pool.query('SELECT * FROM Estudiante WHERE IdE= ?',[id] ,(error, results) => {
+      const carga = await  pool.query('SELECT * FROM usuarios WHERE idusuarios= ?',[id] ,(error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
