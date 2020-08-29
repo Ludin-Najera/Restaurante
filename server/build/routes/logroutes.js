@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const logcontroller_1 = __importDefault(require("../controllers/logcontroller"));
-class InRoutes {
+class LogRoutes {
     constructor() {
         this.router = express_1.Router();
         this.config();
@@ -18,5 +18,5 @@ class InRoutes {
         this.router.delete('/:ide', logcontroller_1.default.delete);
     }
 }
-const inRoutes = new InRoutes();
-exports.default = inRoutes.router;
+const logRoutes = new LogRoutes();
+exports.default = logRoutes.router;

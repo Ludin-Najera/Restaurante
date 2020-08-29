@@ -7,10 +7,7 @@ const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const indexroutes_1 = __importDefault(require("./routes/indexroutes"));
-const inroutes_1 = __importDefault(require("./routes/inroutes"));
-const catedraticoRoutes_1 = __importDefault(require("./routes/catedraticoRoutes"));
-const cursoRoutes_1 = __importDefault(require("./routes/cursoRoutes"));
-const asignacionRoutes_1 = __importDefault(require("./routes/asignacionRoutes"));
+const logroutes_1 = __importDefault(require("./routes/logroutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -26,10 +23,7 @@ class Server {
     }
     routes() {
         this.app.use('/', indexroutes_1.default);
-        this.app.use('/inicio', inroutes_1.default);
-        this.app.use('/api/catedratico', catedraticoRoutes_1.default);
-        this.app.use('/api/curso', cursoRoutes_1.default);
-        this.app.use('/api/asignacion', asignacionRoutes_1.default);
+        this.app.use('/api/log', logroutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {
