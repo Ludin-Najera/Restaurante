@@ -4,6 +4,16 @@ import pool from '../database'
 
 class LogController{
 
+
+    public async login (req: Request, res: Response){
+      const {alias}=req.params;
+      const rows = await pool.query('SELECT * FROM usuarios WHERE alias = ?', [req.body,alias] ,(error, results) => {
+        
+
+      });
+
+    }
+
     public async list (req: Request, res: Response){
         const inicio = await pool.query('SELECT * FROM usuarios', (error, results) => {
             if (error) {
