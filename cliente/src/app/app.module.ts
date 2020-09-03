@@ -19,6 +19,7 @@ import { InicioService } from './services/inicio.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [
@@ -27,3 +28,4 @@ import { InicioService } from './services/inicio.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
