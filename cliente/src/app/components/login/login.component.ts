@@ -11,11 +11,14 @@ export class LoginComponent implements OnInit {
   alias: string;
   pass: string;
 
+  // constructor(public inicioservice: InicioService) { }
   constructor(private inicioservice: InicioService) { }
 
   login(){
-    console.log(this.alias);
-    console.log(this.pass);
+    const user = {alias: this.alias, pass: this.pass};
+    this.inicioservice.login(user).subscribe( data => {
+      console.log(data);
+    });
   }
 
   ngOnInit(): void {
