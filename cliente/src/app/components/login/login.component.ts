@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   // constructor(public inicioservice: InicioService) { }
   constructor(private inicioservice: InicioService) { }
 
+  
   login(){
     const user = {alias: this.alias, pass: this.pass};
     this.inicioservice.login(user).subscribe( data => {
