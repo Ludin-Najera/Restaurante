@@ -26,7 +26,7 @@ export class InicioService {
 //LOGIN
 
   login(UserData: usuarioi): Observable<any>{
-    return this.http.post<usuarioiresp>('http://localhost:3000/login', 
+    return this.http.post<usuarioiresp>('http://localhost:3000/auth', 
     UserData).pipe(
       map( (res:usuarioiresp) => {
         this.saveToken(res.token);
