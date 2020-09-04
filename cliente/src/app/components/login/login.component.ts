@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InicioService } from '../../services/inicio.service';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +10,27 @@ import { InicioService } from '../../services/inicio.service';
 })
 export class LoginComponent implements OnInit {
 
-  alias: string;
-  pass: string;
+  loginForm = this.fb.group({
+    alias: [''],
+    pass: [''],
+  })
+  constructor(private inicioservice: InicioService, private fb:FormBuilder, private router:Router) { }
 
-  // constructor(public inicioservice: InicioService) { }
-  constructor(private inicioservice: InicioService) { }
-
-  
-  login(){
-    const user = {alias: this.alias, pass: this.pass};
-    this.inicioservice.login(user).subscribe( data => {
-      console.log(data);
-    });
-  }
 
   ngOnInit(): void {
+    const UserData = {
+      alias: 'BARRUCO',
+      pass: 'a123',
+    };
+    this.inicioservice.login(UserData).subscribe((res) => console.log('Login'));
   }
-
+  
+  onLogin():void{
+    const formValue = this.loginForm.value;
+    this.inicioservice.login(formValue).subscribe( res => {
+      if (res){
+        this.router.navigate(['']);
+      }
+    });
+  }
 }

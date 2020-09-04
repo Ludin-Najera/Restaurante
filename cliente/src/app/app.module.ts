@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LoginComponent } from './components/login/login.component';
 import { InicioService } from './services/inicio.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { InicioService } from './services/inicio.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     InicioService
