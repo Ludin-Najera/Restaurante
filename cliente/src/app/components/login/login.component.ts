@@ -8,9 +8,20 @@ import { InicioService } from '../../services/inicio.service';
 })
 export class LoginComponent implements OnInit {
 
+    alias: string;
+    pass:  string;
+
   constructor(private inicioservice: InicioService) { }
 
+    login(){
+      const user= {alias: this.alias, pass: this.pass};
+      console.log(this.alias);
+      console.log(this.pass);
+ 
+          }
+          
   ngOnInit(): void {
   }
+  
 
 }
