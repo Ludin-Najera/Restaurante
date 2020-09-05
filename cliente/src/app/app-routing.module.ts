@@ -9,7 +9,7 @@ const routes: Routes = [
     pathMatch: 'full' 
   },
   { 
-    path: 'login', 
+    path:  'login',
     component: LoginComponent
   }
 
