@@ -10,7 +10,7 @@ export class InicioService {
   constructor(private http: HttpClient) { }
 
   login(user: any): Observable<any>{
-    return this.http.get('http://localhost:3000/login', user);
+    return this.http.post('http://localhost:3000/auth/login', user);
   }
 
 

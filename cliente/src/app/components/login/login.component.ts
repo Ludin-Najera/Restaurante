@@ -8,15 +8,15 @@ import { InicioService } from '../../services/inicio.service';
 })
 export class LoginComponent implements OnInit {
 
-  alias: string;
-  pass: string;
+  username: string;
+  password: string;
 
-  // constructor(public inicioservice: InicioService) { }
-  constructor(private inicioservice: InicioService) { }
+  constructor(public inicioservice: InicioService) { }
+  //constructor(private inicioservice: InicioService) { }
 
   
   login(){
-    const user = {alias: this.alias, pass: this.pass};
+    const user = {username: this.username, password: this.password};
     this.inicioservice.login(user).subscribe( data => {
       console.log(data);
     });
