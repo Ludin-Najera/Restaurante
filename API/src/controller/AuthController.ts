@@ -22,6 +22,7 @@ class AuthController {
             return res.status(400).json({message: 'Username or password incorrect!'})
         }
 
+        //res.send(user);
         return res.json({message: 'Bienvenido!'})
 
 
