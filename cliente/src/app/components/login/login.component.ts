@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   password: string;
 
   constructor(public inicioservice: InicioService) { }
-  //constructor(private inicioservice: InicioService) { }
+  
 
   
   login(){
