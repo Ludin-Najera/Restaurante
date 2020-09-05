@@ -6,6 +6,8 @@ import config from '../config/config';
 import { validate } from 'class-validator';
 
 class AuthController {
+  
+  
   static login = async (req: Request, res: Response) => {
     const { username, password } = req.body;
 
@@ -27,6 +29,7 @@ class AuthController {
       return res.status(400).json({ message: 'Username or Password are incorrect!' });
     }
 
+    
     const token = jwt.sign({ userId: user.id, username: user.username }, config.jwtSecret, { expiresIn: '1h' });
 
     res.json({ message: 'OK', token, userId: user.id, role: user.role });
