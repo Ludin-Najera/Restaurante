@@ -4,6 +4,9 @@ import cors from 'cors';
 
 import indexroutes from './routes/indexroutes';
 import  bebidas from './routes/bebidas';
+import  complementos from './routes/complementos';
+import  menu from './routes/menu';
+import  servicio from './routes/servicio';
 
 
 class Server{
@@ -28,6 +31,9 @@ class Server{
 
         this.app.use('/', indexroutes);
         this.app.use('/bebida', bebidas);
+        this.app.use('/complemento', complementos);
+        this.app.use('/menu', menu);
+        this.app.use('/servicio', servicio);
     }
 
     start(): void{
