@@ -4,7 +4,8 @@ class IndexController{
 
     public index (req: Request, res: Response) {
 
-        res.send({text: 'API IS / api/log'})
+        //res.send({text: 'API IS / api/log'})
+        res.send({text: '/bebida'})
 
     }
 

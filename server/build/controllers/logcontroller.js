@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class LogController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const inicio = yield database_1.default.query('SELECT * FROM usuarios', (error, results) => {
+            const inicio = yield database_1.default.query('SELECT * FROM bebidas', (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
