@@ -13,14 +13,11 @@ class BebidaController{
               res.status(200).json(results);
             }
           });
-        res.json(inicio);
-        res.json({text: 'Listado'});
-
     }
 
     public async update (req: Request, res: Response){
       const {id}=req.params;
-      const actualiza = await  pool.query('UPDATE usuarios set ? WHERE idusuarios= ?',[req.body,id] ,(error, results) => {
+      const actualiza = await  pool.query('UPDATE bebidas set ? WHERE idbebidas= ?',[req.body,id] ,(error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
@@ -28,26 +25,24 @@ class BebidaController{
           res.status(200).json(results);
         }
       });
-      res.json({Text: 'Los datos fueron actualizados'})
+      return res.status(200).send('bebida fue modificada');
 
     }
 
     public  create (req: Request, res: Response){
-      const {nombre, tipousuario, alias, pass} = req.body;
+      const {nombre,precio} = req.body;
       const newLink={
-            nombre,
-            tipousuario,
-            alias,pass
+          nombre,precio
       };
 
-       pool.query('INSERT INTO usuarios  set ?', [newLink],(error, results, fields) =>{
+       pool.query('INSERT INTO bebidas  set ?', [newLink],(error, results, fields) =>{
        if(error){
          console.log(error);
          return res.status(500).send(error);
 
        }
 
-       return res.status(200).send('usuario guardado');
+       return res.status(200).send('bebida guardada');
 
       });
       
@@ -57,7 +52,7 @@ class BebidaController{
     public async delete (req: Request, res: Response): Promise<void>{
 
         const { id } = req.params;
-        await pool.query('DELETE FROM usuarios WHERE idusuarios = ?', [id], (error, results) => {
+        await pool.query('DELETE FROM bebidas WHERE idbebidas = ?', [id], (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
@@ -65,13 +60,13 @@ class BebidaController{
               res.status(200).json(results);
             }
           });
-//        res.json({message: 'Registro Eliminado'});
+      res.json({message: 'bebida eliminada'});
     }
 
     public async getone (req: Request, res: Response) {
 
       const {id}=req.params;
-      const carga = await  pool.query('SELECT * FROM usuarios WHERE idusuarios= ?',[id] ,(error, results) => {
+      const carga = await  pool.query('SELECT * FROM bebidas WHERE idbebidas= ?',[id] ,(error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
@@ -79,8 +74,8 @@ class BebidaController{
           res.status(200).json(results);
         }
       });
-      res.json(carga);
-      res.json({text: 'Listado'});
+      //res.json(carga);
+      //res.json({text: 'Listado'});
 
         //const { id } = req.params;
         //const inicio = await pool.query('SELECT * FROM estudiante WHERE IdE = ?', [id]);
