@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class MenuController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const inicio = yield database_1.default.query('SELECT * FROM menu', (error, results) => {
+            const inicio = yield database_1.default.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas', (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -73,7 +73,7 @@ class MenuController {
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM menu WHERE idmenu= ?', [id], (error, results) => {
+            const carga = yield database_1.default.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas WHERE a.idmenu= ?', [id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });

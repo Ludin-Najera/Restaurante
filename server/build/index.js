@@ -11,6 +11,8 @@ const bebidas_1 = __importDefault(require("./routes/bebidas"));
 const complementos_1 = __importDefault(require("./routes/complementos"));
 const menu_1 = __importDefault(require("./routes/menu"));
 const servicio_1 = __importDefault(require("./routes/servicio"));
+const factura_1 = __importDefault(require("./routes/factura"));
+const detalle_1 = __importDefault(require("./routes/detalle"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -30,6 +32,8 @@ class Server {
         this.app.use('/complemento', complementos_1.default);
         this.app.use('/menu', menu_1.default);
         this.app.use('/servicio', servicio_1.default);
+        this.app.use('/factura', factura_1.default);
+        this.app.use('/detalle', detalle_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

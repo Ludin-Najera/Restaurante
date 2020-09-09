@@ -2,10 +2,10 @@ import {Request, Response} from 'express';
 
 import pool from '../database'
 
-class MenuController{
+class DetalleController{
 
     public async list (req: Request, res: Response){
-        const inicio = await pool.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas', (error, results) => {
+        const inicio = await pool.query('SELECT a.iddetallepedidos,a.cantidad,d.nombre as menu,b.nombre as bebida, c.nombre as complementos, a.total FROM detallepedidos a INNER JOIN bebidas b ON a.idbebidas=b.idbebidas INNER JOIN complementos c ON a.idcomplementos=c.idcomplementos INNER JOIN menu d ON a.idmenu=d.idmenu', (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
@@ -17,7 +17,7 @@ class MenuController{
 
     public async update (req: Request, res: Response){
       const {id}=req.params;
-      const actualiza = await  pool.query('UPDATE menu set ? WHERE idmenu= ?',[req.body,id] ,(error, results) => {
+      const actualiza = await  pool.query('UPDATE detallepedidos set ? WHERE iddetallepedidos= ?',[req.body,id] ,(error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
@@ -25,24 +25,24 @@ class MenuController{
           res.status(200).json(results);
         }
       });
-      return res.status(200).send('menu fue modificada');
+      return res.status(200).send('detalle fue modificado');
 
     }
 
     public  create (req: Request, res: Response){
-      const {nombre,descripcion,precio,idcomplementos,idbebidas,idtiposervicio} = req.body;
+      const {idmenu,idcomplementos,idbebidas,cantidad,total} = req.body;
       const newLink={
-          nombre,precio,idcomplementos,idbebidas,idtiposervicio
+        idmenu,idcomplementos,idbebidas,cantidad,total
       };
 
-       pool.query('INSERT INTO menu  set ?', [newLink],(error, results, fields) =>{
+       pool.query('INSERT INTO detallepedidos  set ?', [newLink],(error, results, fields) =>{
        if(error){
          console.log(error);
          return res.status(500).send(error);
 
        }
 
-       return res.status(200).send('menu guardado');
+       return res.status(200).send('detalle guardado');
 
       });
       
@@ -52,7 +52,7 @@ class MenuController{
     public async delete (req: Request, res: Response): Promise<void>{
 
         const { id } = req.params;
-        await pool.query('DELETE FROM menu WHERE idmenu = ?', [id], (error, results) => {
+        await pool.query('DELETE FROM detallepedidos WHERE iddetallepedidos = ?', [id], (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
@@ -60,13 +60,13 @@ class MenuController{
               res.status(200).json(results);
             }
           });
-      res.json({message: 'menu eliminado'});
+      res.json({message: 'detalle eleminado'});
     }
 
     public async getone (req: Request, res: Response) {
 
       const {id}=req.params;
-      const carga = await  pool.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas WHERE a.idmenu= ?',[id] ,(error, results) => {
+      const carga = await  pool.query('SELECT a.iddetallepedidos,a.cantidad,d.nombre as menu,b.nombre as bebida, c.nombre as complementos, a.total FROM detallepedidos a INNER JOIN bebidas b ON a.idbebidas=b.idbebidas INNER JOIN complementos c ON a.idcomplementos=c.idcomplementos INNER JOIN menu d ON a.idmenu=d.idmenu WHERE iddetallepedidos= ?',[id] ,(error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
@@ -81,5 +81,5 @@ class MenuController{
 
 }
 
-const  menuController = new MenuController();
-export default menuController;
+const  detalleController = new DetalleController();
+export default detalleController;
