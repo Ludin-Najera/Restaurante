@@ -4,6 +4,7 @@ import { User } from '../entity/User';
 import router from "../routes/auth";
 
 
+
 class AuthController {
 
     static login = async (req: Request, res: Response)=> {
@@ -24,8 +25,10 @@ class AuthController {
         }
 
         res.send(user);
+
         //return res.json({message: 'Bienvenido!'})
         
+
 
     };
 }
