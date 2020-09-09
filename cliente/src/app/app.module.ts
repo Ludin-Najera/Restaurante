@@ -7,14 +7,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LoginComponent } from './components/login/login.component';
-import { InicioService } from './services/inicio.service';
+import { InicioService, UsuariosService } from './services/inicio.service';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    LoginComponent
+    LoginComponent,
+    PerfilComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,8 @@ import { InicioService } from './services/inicio.service';
     HttpClientModule
   ],
   providers: [
-    InicioService
+    InicioService,
+    UsuariosService
   ],
   bootstrap: [AppComponent]
 })
