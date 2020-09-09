@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { usuarios1 } from 'src/app/models/usuarios';
 import { UsuariosService } from 'src/app/services/inicio.service';
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -19,7 +20,7 @@ export class UsuariosComponent implements OnInit {
 
   };
 
-  constructor( private inicioservice : UsuariosService) { }
+  constructor( private inicioservice : UsuariosService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,10 +29,17 @@ export class UsuariosComponent implements OnInit {
     delete this.usuarios.id;
 
     this.inicioservice.insertarusuarios(this.usuarios).subscribe(res=> {
+      
       console.log(res);
+      this.router.navigateByUrl('/perfil');
+      
+      
     },
       err=> console.error(err)
     )
+
+    
+    
   }
 
 

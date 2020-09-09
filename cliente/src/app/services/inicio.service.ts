@@ -15,6 +15,8 @@ export class InicioService {
   }
 
 
+
+
 }
 
 @Injectable({
@@ -26,6 +28,29 @@ export class UsuariosService {
 
   insertarusuarios(usuarios: usuarios1){
     return this.http.post('http://localhost:3000/users', usuarios)
+  };
+
+  eliminarusuario(id: string){
+    return this.http.delete(`http://localhost:3000/users/${id}`)
+    
   }
+
+  editarusuarios(id, editarusuarios: usuarios1): Observable<usuarios1>{
+    return this.http.put(`http://localhost:3000/users/${id}`, editarusuarios);
+  }
+
+  //mostrar todos los usuarios
+  getusuarios() {
+
+    return this.http.get('http://localhost:3000/users')
+  }
+
+  //mostrar un usuario
+  getusuario(id: string){
+    return this.http.get('http://localhost:3000/users/${id}');
+  }
+
+
+
 
 }

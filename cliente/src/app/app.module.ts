@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { InicioService, UsuariosService } from './services/inicio.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { Usuarios2Component } from './components/usuarios2/usuarios2.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     NavigationComponent,
     LoginComponent,
     PerfilComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    Usuarios2Component
   ],
   imports: [
     BrowserModule,

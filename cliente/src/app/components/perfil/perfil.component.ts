@@ -9,6 +9,9 @@ export class PerfilComponent implements OnInit {
 
   constructor() { }
 
+
+  
+
   ngOnInit(): void {
   }
 
