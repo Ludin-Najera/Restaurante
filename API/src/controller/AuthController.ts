@@ -1,6 +1,10 @@
 import { getRepository } from "typeorm";
 import { Request, Response } from 'express';
 import { User } from '../entity/User';
+<<<<<<< HEAD
+=======
+import router from "../routes/auth";
+>>>>>>> master
 
 
 class AuthController {
@@ -23,7 +27,12 @@ class AuthController {
         }
 
         res.send(user);
+<<<<<<< HEAD
 
+=======
+        //return res.json({message: 'Bienvenido!'})
+        
+>>>>>>> master
 
     };
 }
