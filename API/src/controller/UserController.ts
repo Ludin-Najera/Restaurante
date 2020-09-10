@@ -32,6 +32,7 @@ export class UserController {
     }; 
 
 
+    
     static newUser = async (req: Request, res: Response)=>{
         const { username, password, role } = req.body;
         const user = new User();
@@ -55,7 +56,8 @@ export class UserController {
             return res.status(409).json({message: 'Username already exist'});
         }
 
-        res.send('User created');
+        res.status(201).json({message: 'User created'});
+        //res.send('User created');
 
     };
 
@@ -63,13 +65,14 @@ export class UserController {
     static editUser = async (req: Request, res: Response)=>{
         let user;
         const {id} = req.params;
-        const {username, role} = req.body;
+        const {username, password, role} = req.body;
 
         const userRepository = getRepository(User);
 
         try{
             user = await userRepository.findOneOrFail(id);
             user.username = username;
+            user.password = password;
             user.role = role;
         }
         catch(e){
@@ -92,7 +95,11 @@ export class UserController {
         }
         
         res.status(201).json({message: 'User update'});
+        
+
     };
+
+
     
 
     static deleteUser = async (req: Request, res: Response)=>{

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { usuarios1 } from 'src/app/models/usuarios';
 import { UsuariosService } from 'src/app/services/inicio.service';
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 
 @Component({
@@ -20,9 +20,22 @@ export class UsuariosComponent implements OnInit {
 
   };
 
-  constructor( private inicioservice : UsuariosService, private router: Router) { }
+  edit: boolean = false;
 
-  ngOnInit(): void {
+  constructor( private inicioservice : UsuariosService, private router: Router, private activedroute: ActivatedRoute) { }
+
+  ngOnInit(){
+    const params = this.activedroute.snapshot.params;
+    if (params.id){
+      this.inicioservice.getusuario(params.id).subscribe(res=>{
+        console.log(res);
+        this.usuarios = res;
+        this.edit = true;
+      },
+      err => console.error(err)
+        
+        );
+    }
   }
 
   registrar(){
@@ -36,10 +49,16 @@ export class UsuariosComponent implements OnInit {
       
     },
       err=> console.error(err)
-    )
+    );
+  }
 
-    
-    
+  editar(){
+    this.inicioservice.editarusuarios(this.usuarios.id, this.usuarios).subscribe( res =>{
+      console.log(res);
+      this.router.navigateByUrl('/editar_usuarios');
+    },
+      err => console.log(err)
+    );
   }
 
 

@@ -38,7 +38,13 @@ export class Usuarios2Component implements OnInit {
         this.actualizar();
       },
       err => console.log(err)
-    )
+    );
   }
+
+  editarusuario(id: string){
+    console.log(id);
+  }
+
+
 
 }

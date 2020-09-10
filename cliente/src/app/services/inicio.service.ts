@@ -35,8 +35,8 @@ export class UsuariosService {
     
   }
 
-  editarusuarios(id, editarusuarios: usuarios1): Observable<usuarios1>{
-    return this.http.put(`http://localhost:3000/users/${id}`, editarusuarios);
+  editarusuarios(id: string | number, editarusuarios: usuarios1): Observable<usuarios1>{
+    return this.http.patch(`http://localhost:3000/users/${id}`, editarusuarios);
   }
 
   //mostrar todos los usuarios
@@ -47,7 +47,7 @@ export class UsuariosService {
 
   //mostrar un usuario
   getusuario(id: string){
-    return this.http.get('http://localhost:3000/users/${id}');
+    return this.http.get(`http://localhost:3000/users/${id}`);
   }
 
 
