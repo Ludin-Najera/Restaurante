@@ -13,10 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class LogController {
+class ComplementosController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const inicio = yield database_1.default.query('SELECT * FROM bebidas', (error, results) => {
+            const inicio = yield database_1.default.query('SELECT * FROM complementos', (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -25,14 +25,12 @@ class LogController {
                     res.status(200).json(results);
                 }
             });
-            res.json(inicio);
-            res.json({ text: 'Listado' });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const actualiza = yield database_1.default.query('UPDATE usuarios set ? WHERE idusuarios= ?', [req.body, id], (error, results) => {
+            const actualiza = yield database_1.default.query('UPDATE complementos set ? WHERE idcomplementos= ?', [req.body, id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -41,28 +39,26 @@ class LogController {
                     res.status(200).json(results);
                 }
             });
-            res.json({ Text: 'Los datos fueron actualizados' });
+            return res.status(200).send('complemento fue modificada');
         });
     }
     create(req, res) {
-        const { nombre, tipousuario, alias, pass } = req.body;
+        const { nombre, precio } = req.body;
         const newLink = {
-            nombre,
-            tipousuario,
-            alias, pass
+            nombre, precio
         };
-        database_1.default.query('INSERT INTO usuarios  set ?', [newLink], (error, results, fields) => {
+        database_1.default.query('INSERT INTO complementos  set ?', [newLink], (error, results, fields) => {
             if (error) {
                 console.log(error);
                 return res.status(500).send(error);
             }
-            return res.status(200).send('usuario guardado');
+            return res.status(200).send('complemento guardado');
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM usuarios WHERE idusuarios = ?', [id], (error, results) => {
+            yield database_1.default.query('DELETE FROM complementos WHERE idcomplementos = ?', [id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -71,13 +67,13 @@ class LogController {
                     res.status(200).json(results);
                 }
             });
-            //        res.json({message: 'Registro Eliminado'});
+            res.json({ message: 'complemento eliminado' });
         });
     }
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM usuarios WHERE idusuarios= ?', [id], (error, results) => {
+            const carga = yield database_1.default.query('SELECT * FROM complementos WHERE idcomplementos= ?', [id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -86,17 +82,10 @@ class LogController {
                     res.status(200).json(results);
                 }
             });
-            res.json(carga);
-            res.json({ text: 'Listado' });
-            //const { id } = req.params;
-            //const inicio = await pool.query('SELECT * FROM estudiante WHERE IdE = ?', [id]);
-            //if (inicio.length > 0){
-            //  return res.json(inicio[0]);
-            // }
-            //console.log(inicio);
-            //res.json({text: 'Registro encontrado'});
+            //res.json(carga);
+            //res.json({text: 'Listado'});
         });
     }
 }
-const logController = new LogController();
-exports.default = logController;
+const complementosController = new ComplementosController();
+exports.default = complementosController;

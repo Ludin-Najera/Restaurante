@@ -13,10 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class LogController {
+class MenuController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const inicio = yield database_1.default.query('SELECT * FROM bebidas', (error, results) => {
+            const inicio = yield database_1.default.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas', (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -25,14 +25,12 @@ class LogController {
                     res.status(200).json(results);
                 }
             });
-            res.json(inicio);
-            res.json({ text: 'Listado' });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const actualiza = yield database_1.default.query('UPDATE usuarios set ? WHERE idusuarios= ?', [req.body, id], (error, results) => {
+            const actualiza = yield database_1.default.query('UPDATE menu set ? WHERE idmenu= ?', [req.body, id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -41,28 +39,26 @@ class LogController {
                     res.status(200).json(results);
                 }
             });
-            res.json({ Text: 'Los datos fueron actualizados' });
+            return res.status(200).send('menu fue modificada');
         });
     }
     create(req, res) {
-        const { nombre, tipousuario, alias, pass } = req.body;
+        const { nombre, descripcion, precio, idcomplementos, idbebidas, idtiposervicio } = req.body;
         const newLink = {
-            nombre,
-            tipousuario,
-            alias, pass
+            nombre, precio, idcomplementos, idbebidas, idtiposervicio
         };
-        database_1.default.query('INSERT INTO usuarios  set ?', [newLink], (error, results, fields) => {
+        database_1.default.query('INSERT INTO menu  set ?', [newLink], (error, results, fields) => {
             if (error) {
                 console.log(error);
                 return res.status(500).send(error);
             }
-            return res.status(200).send('usuario guardado');
+            return res.status(200).send('menu guardado');
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM usuarios WHERE idusuarios = ?', [id], (error, results) => {
+            yield database_1.default.query('DELETE FROM menu WHERE idmenu = ?', [id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -71,13 +67,13 @@ class LogController {
                     res.status(200).json(results);
                 }
             });
-            //        res.json({message: 'Registro Eliminado'});
+            res.json({ message: 'menu eliminado' });
         });
     }
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM usuarios WHERE idusuarios= ?', [id], (error, results) => {
+            const carga = yield database_1.default.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas WHERE a.idmenu= ?', [id], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -86,17 +82,10 @@ class LogController {
                     res.status(200).json(results);
                 }
             });
-            res.json(carga);
-            res.json({ text: 'Listado' });
-            //const { id } = req.params;
-            //const inicio = await pool.query('SELECT * FROM estudiante WHERE IdE = ?', [id]);
-            //if (inicio.length > 0){
-            //  return res.json(inicio[0]);
-            // }
-            //console.log(inicio);
-            //res.json({text: 'Registro encontrado'});
+            //res.json(carga);
+            //res.json({text: 'Listado'});
         });
     }
 }
-const logController = new LogController();
-exports.default = logController;
+const menuController = new MenuController();
+exports.default = menuController;

@@ -3,7 +3,12 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import indexroutes from './routes/indexroutes';
-import logroutes from './routes/logroutes';
+import  bebidas from './routes/bebidas';
+import  complementos from './routes/complementos';
+import  menu from './routes/menu';
+import  servicio from './routes/servicio';
+import  factura from './routes/factura';
+import  detalle from './routes/detalle';
 
 
 class Server{
@@ -17,7 +22,7 @@ class Server{
     }
     
     config(): void{
-        this.app.set('port', process.env.PORT || 3000);
+        this.app.set('port', 5000);
         this.app.use(morgan('dev'));
         this.app.use(cors());
         this.app.use(express.json());
@@ -27,7 +32,12 @@ class Server{
     routes(): void {
 
         this.app.use('/', indexroutes);
-        this.app.use('/api/log', logroutes);
+        this.app.use('/bebida', bebidas);
+        this.app.use('/complemento', complementos);
+        this.app.use('/menu', menu);
+        this.app.use('/servicio', servicio);
+        this.app.use('/factura', factura);
+        this.app.use('/detalle', detalle);
     }
 
     start(): void{

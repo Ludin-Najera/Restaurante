@@ -2,10 +2,10 @@ import {Request, Response} from 'express';
 
 import pool from '../database'
 
-class LogController{
+class ComplementosController{
 
     public async list (req: Request, res: Response){
-        const inicio = await pool.query('SELECT * FROM usuarios', (error, results) => {
+        const inicio = await pool.query('SELECT * FROM complementos', (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
@@ -13,14 +13,11 @@ class LogController{
               res.status(200).json(results);
             }
           });
-        res.json(inicio);
-        res.json({text: 'Listado'});
-
     }
 
     public async update (req: Request, res: Response){
       const {id}=req.params;
-      const actualiza = await  pool.query('UPDATE usuarios set ? WHERE idusuarios= ?',[req.body,id] ,(error, results) => {
+      const actualiza = await  pool.query('UPDATE complementos set ? WHERE idcomplementos= ?',[req.body,id] ,(error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
@@ -28,26 +25,24 @@ class LogController{
           res.status(200).json(results);
         }
       });
-      res.json({Text: 'Los datos fueron actualizados'})
+      return res.status(200).send('complemento fue modificada');
 
     }
 
     public  create (req: Request, res: Response){
-      const {nombre, tipousuario, alias, pass} = req.body;
+      const {nombre,precio} = req.body;
       const newLink={
-            nombre,
-            tipousuario,
-            alias,pass
+          nombre,precio
       };
 
-       pool.query('INSERT INTO usuarios  set ?', [newLink],(error, results, fields) =>{
+       pool.query('INSERT INTO complementos  set ?', [newLink],(error, results, fields) =>{
        if(error){
          console.log(error);
          return res.status(500).send(error);
 
        }
 
-       return res.status(200).send('usuario guardado');
+       return res.status(200).send('complemento guardado');
 
       });
       
@@ -57,7 +52,7 @@ class LogController{
     public async delete (req: Request, res: Response): Promise<void>{
 
         const { id } = req.params;
-        await pool.query('DELETE FROM usuarios WHERE idusuarios = ?', [id], (error, results) => {
+        await pool.query('DELETE FROM complementos WHERE idcomplementos = ?', [id], (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
@@ -65,13 +60,13 @@ class LogController{
               res.status(200).json(results);
             }
           });
-//        res.json({message: 'Registro Eliminado'});
+      res.json({message: 'complemento eliminado'});
     }
 
     public async getone (req: Request, res: Response) {
 
       const {id}=req.params;
-      const carga = await  pool.query('SELECT * FROM usuarios WHERE idusuarios= ?',[id] ,(error, results) => {
+      const carga = await  pool.query('SELECT * FROM complementos WHERE idcomplementos= ?',[id] ,(error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
@@ -79,20 +74,12 @@ class LogController{
           res.status(200).json(results);
         }
       });
-      res.json(carga);
-      res.json({text: 'Listado'});
-
-        //const { id } = req.params;
-        //const inicio = await pool.query('SELECT * FROM estudiante WHERE IdE = ?', [id]);
-        //if (inicio.length > 0){
-          //  return res.json(inicio[0]);
-       // }
-        //console.log(inicio);
-        //res.json({text: 'Registro encontrado'});
+      //res.json(carga);
+      //res.json({text: 'Listado'});
 
     }
 
 }
 
-const logController = new LogController();
-export default logController;
+const  complementosController = new ComplementosController();
+export default complementosController;
