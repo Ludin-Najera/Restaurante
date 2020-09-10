@@ -36,7 +36,7 @@ class ComplementosController {
                     res.status(500).json({ status: 'error' });
                 }
                 else {
-                    res.status(200).json(results);
+                    // res.status(200).json(results);
                 }
             });
             return res.status(200).send('complemento fue modificada');
@@ -64,7 +64,7 @@ class ComplementosController {
                     res.status(500).json({ status: 'error' });
                 }
                 else {
-                    res.status(200).json(results);
+                    // res.status(200).json(results);
                 }
             });
             res.json({ message: 'complemento eliminado' });

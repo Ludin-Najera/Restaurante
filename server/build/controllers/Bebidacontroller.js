@@ -36,7 +36,7 @@ class BebidaController {
                     res.status(500).json({ status: 'error' });
                 }
                 else {
-                    res.status(200).json(results);
+                    //res.status(200).json(results);
                 }
             });
             return res.status(200).send('bebida fue modificada');
@@ -57,14 +57,13 @@ class BebidaController {
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM bebidas WHERE idbebidas = ?', [id], (error, results) => {
-                if (error) {
-                    console.log(error);
-                    res.status(500).json({ status: 'error' });
+            const { idbebidas } = req.params;
+            yield database_1.default.query('DELETE FROM bebidas WHERE idbebidas = ?', [idbebidas], (error, results) => {
+                if (!error) {
+                    return res.status(500).json({ status: 'error' });
                 }
                 else {
-                    res.status(200).json(results);
+                    //return res.status(200).json(results);
                 }
             });
             res.json({ message: 'bebida eliminada' });

@@ -36,7 +36,7 @@ class FacturaController {
                     res.status(500).json({ status: 'error' });
                 }
                 else {
-                    res.status(200).json(results);
+                    //res.status(200).json(results);
                 }
             });
             return res.status(200).send('factura fue modificada');
@@ -64,7 +64,7 @@ class FacturaController {
                     res.status(500).json({ status: 'error' });
                 }
                 else {
-                    res.status(200).json(results);
+                    //res.status(200).json(results);
                 }
             });
             res.json({ message: 'factura eliminada' });
