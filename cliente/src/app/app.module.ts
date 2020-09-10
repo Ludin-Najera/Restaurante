@@ -11,6 +11,10 @@ import { InicioService, UsuariosService } from './services/inicio.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { Usuarios2Component } from './components/usuarios2/usuarios2.component';
+import { BebidasComponent } from './components/bebidas/bebidas.component';
+import { Bebidas2Component } from './components/bebidas2/bebidas2.component';
+import { ComplementosComponent } from './components/complementos/complementos.component';
+import { Complementos2Component } from './components/complementos2/complementos2.component';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import { Usuarios2Component } from './components/usuarios2/usuarios2.component';
     LoginComponent,
     PerfilComponent,
     UsuariosComponent,
-    Usuarios2Component
+    Usuarios2Component,
+    BebidasComponent,
+    Bebidas2Component,
+    ComplementosComponent,
+    Complementos2Component
   ],
   imports: [
     BrowserModule,
