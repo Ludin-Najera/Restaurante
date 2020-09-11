@@ -1,0 +1,9 @@
+.fondo1{
+    margin:-22px;
+   padding:262px;   
+   background: url(img1/Restaurante.jpg) no-repeat;
+   background-size: cover;
+   background-position: center ;
+   background-attachment: fixed;
+}
+
