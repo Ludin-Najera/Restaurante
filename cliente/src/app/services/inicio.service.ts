@@ -66,28 +66,28 @@ export class BebidasService {
   constructor(private http: HttpClient){}
 
   insertarbebidas(bebidas: bebidas1){
-    return this.http.post('http://localhost:3000/bebida', bebidas)
+    return this.http.post('http://localhost:5000/bebida', bebidas)
   };
 
   eliminarbebidas(id: string){
-    return this.http.delete(`http://localhost:3000/bebida/${id}`)
+    return this.http.delete(`http://localhost:5000/bebida/${id}`)
     
-  }
+  };
 
-  editarbebidas(id: string | number, editarbebidas: bebidas1): Observable<bebidas1>{
-    return this.http.patch(`http://localhost:3000/bebida/${id}`, editarbebidas);
-  }
+  editarbebidas(id: string | number, bebidas: bebidas1): Observable<bebidas1>{
+    return this.http.patch(`http://localhost:5000/bebida/${id}`, bebidas);
+  };
 
   //mostrar todas las bebidas
   getbebidas() {
 
-    return this.http.get('http://localhost:3000/bebida')
-  }
+    return this.http.get('http://localhost:5000/bebida')
+  };
 
   //mostrar una bebida
-  getbebida(id: string){
-    return this.http.get(`http://localhost:3000/bebida/${id}`);
-  }
+  getbebida(idbebidas: string){
+    return this.http.get(`http://localhost:5000/bebida/${idbebidas}`);
+  };
 
 }
 

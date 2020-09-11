@@ -1,1 +1,19 @@
-<p>bebidas2 works!</p>
+<div class="col-md-2" *ngFor="let bebidas of bebidas">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{bebidas.nombre}}
+        <!-- <button class="btn btn-danger"></button> -->
+        <button class="btn btn-danger" (click)=eliminarbebidas(bebidas.idbebidas)>Eliminar</button>
+        </div>
+        
+        <img style="height: 150px; width: 100%; display: block;" src="https://www.softzone.es/app/uploads/2018/04/guest.png" class="card-img-top">
+        
+    <div class="card-body">
+        <p>{{bebidas.precio}}</p>
+        <a [routerLink]="['/editar_bebidas', bebidas.idbebidas]" class="btn btn-info btn-block">Editar Bebidas</a>
+
+    </div>
+
+    </div>
+
+</div>

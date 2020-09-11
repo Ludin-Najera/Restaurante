@@ -44,7 +44,7 @@ const routes: Routes = [
     component: Bebidas2Component
   },
   {
-    path: 'editar_bebidas/:id',
+    path: 'editar_bebidas/:idbebidas',
     component: BebidasComponent
   },
   {

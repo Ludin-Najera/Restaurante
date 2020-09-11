@@ -29,17 +29,18 @@ class BebidaController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const actualiza = yield database_1.default.query('UPDATE bebidas set ? WHERE idbebidas= ?', [req.body, id], (error, results) => {
+            const { idbebidas } = req.params;
+            const { nombre, precio } = req.body;
+            const newLink = {
+                nombre, precio
+            };
+            database_1.default.query('UPDATE bebidas set ? WHERE idbebidas= ?', [newLink, idbebidas], (error) => {
                 if (error) {
                     console.log(error);
-                    res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
+                    return res.status(500).json({ error });
                 }
             });
-            return res.status(200).send('bebida fue modificada');
+            res.status(201).json({ message: 'bebida fue modificada' });
         });
     }
     create(req, res) {
@@ -47,32 +48,29 @@ class BebidaController {
         const newLink = {
             nombre, precio
         };
-        database_1.default.query('INSERT INTO bebidas  set ?', [newLink], (error, results, fields) => {
+        database_1.default.query('INSERT INTO bebidas set ?', [newLink], (error, results, fields) => {
             if (error) {
                 console.log(error);
                 return res.status(500).send(error);
             }
-            return res.status(200).send('bebida guardada');
+            return res.status(200).json('bebida guardada');
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { idbebidas } = req.params;
             yield database_1.default.query('DELETE FROM bebidas WHERE idbebidas = ?', [idbebidas], (error, results) => {
-                if (!error) {
+                if (error) {
                     return res.status(500).json({ status: 'error' });
                 }
-                else {
-                    //return res.status(200).json(results);
-                }
             });
-            res.json({ message: 'bebida eliminada' });
+            res.status(201).json({ message: 'bebida eliminada' });
         });
     }
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM bebidas WHERE idbebidas= ?', [id], (error, results) => {
+            const { idbebidas } = req.params;
+            const carga = yield database_1.default.query('SELECT * FROM bebidas WHERE idbebidas= ?', [idbebidas], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });

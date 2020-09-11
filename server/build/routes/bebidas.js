@@ -12,9 +12,9 @@ class LogRoutes {
     }
     config() {
         this.router.get('/', Bebidacontroller_1.default.list);
-        this.router.get('/:id', Bebidacontroller_1.default.getone);
+        this.router.get('/:idbebidas', Bebidacontroller_1.default.getone);
         this.router.post('/', Bebidacontroller_1.default.create);
-        this.router.put('/:id', Bebidacontroller_1.default.update);
+        this.router.patch('/:idbebidas', Bebidacontroller_1.default.update);
         this.router.delete('/:idbebidas', Bebidacontroller_1.default.delete);
     }
 }

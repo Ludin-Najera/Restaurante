@@ -26,6 +26,7 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(){
     const params = this.activedroute.snapshot.params;
+    console.log(params);
     if (params.id){
       this.inicioservice.getusuario(params.id).subscribe(res=>{
         console.log(res);

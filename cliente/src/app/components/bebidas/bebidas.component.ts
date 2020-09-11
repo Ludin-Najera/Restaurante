@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { bebidas1 } from "src/app/models/bebidas";
-import { BebidasService } from "src/app/services/inicio.service";
+import { bebidas1 } from 'src/app/models/bebidas';
+import { BebidasService } from 'src/app/services/inicio.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -10,9 +10,10 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './bebidas.component.html',
   styleUrls: ['./bebidas.component.css']
 })
+
 export class BebidasComponent implements OnInit {
 
-  bebidas: bebidas1 ={
+  bebidas: bebidas1 = {
     idbebidas: 0,
     nombre: '',
     precio: '',
@@ -23,10 +24,12 @@ export class BebidasComponent implements OnInit {
 
   constructor(private bebidasservice: BebidasService, private router: Router, private activedroute: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
     const params = this.activedroute.snapshot.params;
-    if(params.idbebidas){
-      this.bebidasservice.getbebida(params.id).subscribe(res=> {
+    console.log(params);
+     if(params.idbebidas){
+      this.bebidasservice.getbebida(params.idbebidas).subscribe(res=> {
         console.log(res);
         this.bebidas = res;
         this.edit = true;
@@ -34,7 +37,7 @@ export class BebidasComponent implements OnInit {
       err => console.error(err)
       );
     }
-  }
+   }
 
 
   registrar(){
