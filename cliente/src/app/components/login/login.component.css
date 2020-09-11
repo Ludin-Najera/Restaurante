@@ -1,3 +1,5 @@
+
+
 .cajas{
     border-radius: 25px; 
 }
@@ -7,11 +9,20 @@
 
 .login-container{
     border-radius: 15px; 
-    background-color: rgba(0, 0, 0, 0.3);;
+    background-color: rgba(0, 0, 0, 0.5);;
 }
 
 .login-header{
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-
+    background-color: rgba(0, 0, 0, 0);
 }
+
+.fondo{
+     margin:-28px;
+    padding: 6%;   
+    background: url(img1/Restaurante.jpg ) no-repeat;
+    background-size: cover;
+    background-position: center ;
+    background-attachment: fixed;
+}
+

@@ -1,21 +1,36 @@
-<div class="container">
 
-  <div class="login">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="login.component.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>Restaurante antigueño</title>
+ 
+</head>
+
+<body class="fondo_total">
+  <header class= "fondo">
+  <div class="container" >
     
-    <div class="funcion1">
-    <h2 class="login-header">Log in</h2>
-  </div>
+      
+    
+    <div class="login">
+        
+      <!--<form class="login-container"> -->
+       <form class="login-container" method="POST">
+        <h2 class="login-header">Log in</h2>
+        <p > 
+          <input class="cajas" type="text" [(ngModel)]="username" name='username' placeholder="Usuario" required="required" placeholder="ingrese su Nombre de Usuario:Marcos"></p>
+        <p>
+          <input class="cajas"type="password" [(ngModel)]="password" name='password' placeholder="Password" required="required"placeholder="ingrese su clave: 8 Caracteres 12314568"></p>
+        <p >
+          <input class="boton" type="submit" (click)="login()" value="Log in"></p>
+      </form>
+    </div>
   
-    <!--<form class="login-container"> -->
-     <form class="login-container" method="POST">
-      <p > 
-        <input class="cajas" type="text" [(ngModel)]="username" name='username' placeholder="Usuario" required="required"></p>
-      <p>
-        <input class="cajas"type="password" [(ngModel)]="password" name='password' placeholder="Password" required="required"></p>
-      <p >
-        <input class="boton" type="submit" (click)="login()" value="Log in"></p>
-    </form>
   </div>
-
-
-</div>
+</header>
+</body>
+</html>
