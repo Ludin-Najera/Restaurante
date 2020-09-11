@@ -3,7 +3,7 @@
     <div class="registro">
       <div class="registro-triangle"></div>
       
-      <h2 class="registro-header">Usuarios</h2>
+      <h2 class="registro-header">Crear Usuario</h2>
     
       <!--<form class="login-container"> -->
        <form class="registro-container" method="POST">
@@ -14,7 +14,7 @@
         <p>
             <input type="text" [(ngModel)]="usuarios.role" name='role' placeholder="Rol" required="required"></p>
         <p>
-          <input type="submit" (click)="edit ? editar() : registrar()" value="Guardar"></p>
+          <input type="submit" (click)="edit ? editar() : registrar()" value="Guardar"> <input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"> </p>
       </form>
     </div>
   
