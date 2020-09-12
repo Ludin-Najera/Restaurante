@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class MenuController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const inicio = yield database_1.default.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas', (error, results) => {
+            const inicio = yield database_1.default.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio,d.nombre as complemento FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas INNER JOIN complementos d ON a.idcomplementos=d.idcomplentos', (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
@@ -37,7 +37,7 @@ class MenuController {
                     return res.status(500).json({ error });
                 }
             });
-            return res.status(200).send('menu fue modificada');
+            return res.status(200).json('menu fue modificada');
         });
     }
     create(req, res) {
@@ -50,7 +50,7 @@ class MenuController {
                 console.log(error);
                 return res.status(500).send(error);
             }
-            return res.status(200).send('menu guardado');
+            return res.status(200).json('menu guardado');
         });
     }
     delete(req, res) {

@@ -37,7 +37,7 @@ class FacturaController {
                     res.status(500).json({ status: 'error' });
                 }
             });
-            return res.status(200).send('factura fue modificada');
+            return res.status(200).json('factura fue modificada');
         });
     }
     create(req, res) {
@@ -50,7 +50,7 @@ class FacturaController {
                 console.log(error);
                 return res.status(500).send(error);
             }
-            return res.status(200).send('factura guardada');
+            return res.status(200).json('factura guardada');
         });
     }
     delete(req, res) {
