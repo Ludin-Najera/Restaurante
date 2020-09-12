@@ -12,6 +12,8 @@ import { TiposervicioComponent } from './components/tiposervicio/tiposervicio.co
 import { Tiposervicio2Component } from './components/tiposervicio2/tiposervicio2.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { Menu2Component } from './components/menu2/menu2.component';
+import { FacturaComponent } from './components/factura/factura.component';
+import { Factura2Component } from './components/factura2/factura2.component';
 
 const routes: Routes = [
   { 
@@ -86,7 +88,20 @@ const routes: Routes = [
   {
     path: 'editar_menu/:idmenu',
     component: MenuComponent
+  },
+  {
+    path: 'crear_factura',
+    component: FacturaComponent
+  },
+  {
+    path: 'editar_factura',
+    component: Factura2Component
+  },
+  {
+    path: 'editar_factura/:idfactura',
+    component: FacturaComponent
   }
+
 
   
 ];
