@@ -14,6 +14,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { Menu2Component } from './components/menu2/menu2.component';
 import { FacturaComponent } from './components/factura/factura.component';
 import { Factura2Component } from './components/factura2/factura2.component';
+import { CocinaComponent } from './components/cocina/cocina.component';
 
 const routes: Routes = [
   { 
@@ -100,7 +101,12 @@ const routes: Routes = [
   {
     path: 'editar_factura/:idfactura',
     component: FacturaComponent
+  } ,
+  {
+    path: 'cocina',
+    component: CocinaComponent
   }
+
 
 
   

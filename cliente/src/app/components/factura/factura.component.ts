@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FacturaComponent implements OnInit {
 
-  status:string[]=["Pedido","Entrega","Finalizado"];
+  status:string[]=["Preparacion","Entrega","Finalizado"];
   sellista:string[]=[];
 
 factura: factura1 = {
