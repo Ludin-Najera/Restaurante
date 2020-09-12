@@ -8,6 +8,8 @@ import { BebidasComponent } from "./components/bebidas/bebidas.component";
 import { Bebidas2Component } from "./components/bebidas2/bebidas2.component";
 import { ComplementosComponent } from "./components/complementos/complementos.component";
 import { Complementos2Component } from "./components/complementos2/complementos2.component";
+import { TiposervicioComponent } from './components/tiposervicio/tiposervicio.component';
+import { Tiposervicio2Component } from './components/tiposervicio2/tiposervicio2.component';
 
 const routes: Routes = [
   { 
@@ -58,6 +60,18 @@ const routes: Routes = [
   {
     path: 'editar_complementos/:idcomplementos',
     component: ComplementosComponent
+  },
+  {
+    path: 'crear_tiposervicio',
+    component: TiposervicioComponent
+  },
+  {
+    path: 'editar_tiposervicio',
+    component: Tiposervicio2Component
+  },
+  {
+    path: 'editar_tiposervicio/:idtiposervicio',
+    component: TiposervicioComponent
   }
 
   

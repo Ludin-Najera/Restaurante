@@ -1,0 +1,17 @@
+<div class="container">
+
+    <div class="registro">
+      <div class="registro-triangle"></div>
+      
+      <h2 class="registro-header">Tipo de Servicio</h2>
+    
+      <form class="registro-container" method="POST">
+        <p>
+          <input type="text" [(ngModel)]="tiposervicio.nombre" name='nombre' placeholder="Nombre" required="required"></p>
+        <p>
+          <input type="submit" (click)="edit ? editar() : registrar()" value="Guardar"><input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"> </p>
+      </form>
+    </div>
+  
+  
+  </div>

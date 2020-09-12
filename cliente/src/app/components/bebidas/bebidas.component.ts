@@ -25,8 +25,6 @@ export class BebidasComponent implements OnInit {
   constructor(private bebidasservice: BebidasService, private router: Router, private activedroute: ActivatedRoute) { }
 
   ngOnInit() {
-    
-    
     const params = this.activedroute.snapshot.params;
     console.log(params);
      if(params.idbebidas){

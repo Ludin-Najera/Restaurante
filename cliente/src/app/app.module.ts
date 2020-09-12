@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LoginComponent } from './components/login/login.component';
-import { InicioService, UsuariosService, BebidasService, ComplementosService } from './services/inicio.service';
+import { InicioService, UsuariosService, BebidasService, ComplementosService, TiposervicioService } from './services/inicio.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { Usuarios2Component } from './components/usuarios2/usuarios2.component';
@@ -15,6 +15,8 @@ import { BebidasComponent } from './components/bebidas/bebidas.component';
 import { Bebidas2Component } from './components/bebidas2/bebidas2.component';
 import { ComplementosComponent } from './components/complementos/complementos.component';
 import { Complementos2Component } from './components/complementos2/complementos2.component';
+import { TiposervicioComponent } from './components/tiposervicio/tiposervicio.component';
+import { Tiposervicio2Component } from './components/tiposervicio2/tiposervicio2.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { Complementos2Component } from './components/complementos2/complementos2
     BebidasComponent,
     Bebidas2Component,
     ComplementosComponent,
-    Complementos2Component
+    Complementos2Component,
+    TiposervicioComponent,
+    Tiposervicio2Component
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { Complementos2Component } from './components/complementos2/complementos2
     InicioService,
     UsuariosService,
     BebidasService,
-    ComplementosService
+    ComplementosService,
+    TiposervicioService
   ],
   bootstrap: [AppComponent]
 })

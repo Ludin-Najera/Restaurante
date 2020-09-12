@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { usuarios1 } from '../models/usuarios';
-import { bebidas1 } from "../models/bebidas";
-import { complementos1 } from "../models/complementos";
+import { bebidas1 } from '../models/bebidas';
+import { complementos1 } from '../models/complementos';
+import { tiposervicio1 } from '../models/tiposervicio';
 
 //login
 
@@ -115,15 +116,53 @@ export class ComplementosService {
     return this.http.put(`http://localhost:5000/complemento/${id}`, editarcomplemento);
   }
 
-  //mostrar todos los usuarios
+  //mostrar todos los complementos
   getcomplementos() {
 
     return this.http.get('http://localhost:5000/complemento')
   }
 
-  //mostrar un usuario
+  //mostrar un complemento
   getcomplemento(id: string){
     return this.http.get(`http://localhost:5000/complemento/${id}`);
   }
 
 }
+
+
+
+//tiposervicio
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TiposervicioService {
+
+  constructor(private http: HttpClient){}
+
+  insertartiposervicio(tiposervicio: tiposervicio1){
+    return this.http.post('http://localhost:5000/servicio', tiposervicio)
+  };
+
+  eliminartiposervicio(id: string){
+    return this.http.delete(`http://localhost:5000/servicio/${id}`)
+    
+  }
+
+  editartiposervicio(id: string | number, tiposervicio: tiposervicio1): Observable<tiposervicio1>{
+    return this.http.put(`http://localhost:5000/servicio/${id}`, tiposervicio);
+  }
+
+  //mostrar todos los tiposservicio
+  gettiposervicios() {
+
+    return this.http.get('http://localhost:5000/servicio')
+  }
+
+  //mostrar un tiposervicio
+  gettiposervicio(id: string){
+    return this.http.get(`http://localhost:5000/servicio/${id}`);
+  }
+
+}
+
