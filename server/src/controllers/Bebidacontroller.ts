@@ -19,12 +19,9 @@ class BebidaController{
     public async update (req: Request, res: Response){
       const {idbebidas}=req.params;
       const {nombre,precio} = req.body;
-      const newLink={
-        nombre,precio
-      };
-      pool.query('UPDATE bebidas set ? WHERE idbebidas= ?',[newLink, idbebidas] ,(error) => {
+      await pool.query(`UPDATE bebidas set ? WHERE idbebidas= ?`,[req.body, idbebidas] ,(error, result) => {
         if (error) {
-          console.log(error);
+          console.log(error); 
           return res.status(500).json({error});
         } 
       });
@@ -66,7 +63,7 @@ class BebidaController{
     public async getone (req: Request, res: Response) {
 
       const {idbebidas}=req.params;
-      const carga = await  pool.query('SELECT * FROM bebidas WHERE idbebidas= ?',[idbebidas] ,(error, results) => {
+      await  pool.query('SELECT * FROM bebidas WHERE idbebidas= ?',[idbebidas] ,(error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});

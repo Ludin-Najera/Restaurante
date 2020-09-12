@@ -31,10 +31,7 @@ class BebidaController {
         return __awaiter(this, void 0, void 0, function* () {
             const { idbebidas } = req.params;
             const { nombre, precio } = req.body;
-            const newLink = {
-                nombre, precio
-            };
-            database_1.default.query('UPDATE bebidas set ? WHERE idbebidas= ?', [newLink, idbebidas], (error) => {
+            yield database_1.default.query(`UPDATE bebidas set ? WHERE idbebidas= ?`, [req.body, idbebidas], (error, result) => {
                 if (error) {
                     console.log(error);
                     return res.status(500).json({ error });
@@ -70,7 +67,7 @@ class BebidaController {
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { idbebidas } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM bebidas WHERE idbebidas= ?', [idbebidas], (error, results) => {
+            yield database_1.default.query('SELECT * FROM bebidas WHERE idbebidas= ?', [idbebidas], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });

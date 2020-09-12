@@ -16,7 +16,7 @@ class LogRoutes {
         this.router.get('/', BebidaController.list);
         this.router.get('/:idbebidas',BebidaController.getone);
         this.router.post('/', BebidaController.create);
-        this.router.patch('/:idbebidas',BebidaController.update);
+        this.router.put('/:idbebidas',BebidaController.update);
         this.router.delete('/:idbebidas',BebidaController.delete);
     }
 

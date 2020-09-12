@@ -56,7 +56,7 @@ const routes: Routes = [
     component: Complementos2Component
   },
   {
-    path: 'editar_complementos/:id',
+    path: 'editar_complementos/:idcomplementos',
     component: ComplementosComponent
   }
 

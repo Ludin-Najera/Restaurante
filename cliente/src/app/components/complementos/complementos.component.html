@@ -1,1 +1,20 @@
-<p>complementos works!</p>
+<div class="container">
+
+    <div class="registro">
+      <div class="registro-triangle"></div>
+      
+      <h2 class="registro-header">Complementos</h2>
+    
+      <form class="registro-container" method="POST">
+        <p>
+          <input type="text" [(ngModel)]="complementos.nombre" name='nombre' placeholder="Nombre" required="required"></p>
+        <p>
+            <input type="text" [(ngModel)]="Complementos.precio" name='precio' placeholder="Precio" required="required"></p>
+        <p>
+          <input type="submit" (click)="edit ? editar() : registrar()" value="Guardar"><input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"> </p>
+      </form>
+    </div>
+  
+  
+  </div>
+

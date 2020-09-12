@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LoginComponent } from './components/login/login.component';
-import { InicioService, UsuariosService, BebidasService } from './services/inicio.service';
+import { InicioService, UsuariosService, BebidasService, ComplementosService } from './services/inicio.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { Usuarios2Component } from './components/usuarios2/usuarios2.component';
@@ -39,7 +39,8 @@ import { Complementos2Component } from './components/complementos2/complementos2
   providers: [
     InicioService,
     UsuariosService,
-    BebidasService
+    BebidasService,
+    ComplementosService
   ],
   bootstrap: [AppComponent]
 })

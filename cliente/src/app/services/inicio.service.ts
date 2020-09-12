@@ -75,7 +75,7 @@ export class BebidasService {
   };
 
   editarbebidas(id: string | number, bebidas: bebidas1): Observable<bebidas1>{
-    return this.http.patch(`http://localhost:5000/bebida/${id}`, bebidas);
+    return this.http.put(`http://localhost:5000/bebida/${id}`, bebidas);
   };
 
   //mostrar todas las bebidas
@@ -85,8 +85,8 @@ export class BebidasService {
   };
 
   //mostrar una bebida
-  getbebida(idbebidas: string){
-    return this.http.get(`http://localhost:5000/bebida/${idbebidas}`);
+  getbebida(id: string){
+    return this.http.get(`http://localhost:5000/bebida/${id}`);
   };
 
 }
@@ -102,28 +102,28 @@ export class ComplementosService {
 
   constructor(private http: HttpClient){}
 
-  insertarusuarios(usuarios: usuarios1){
-    return this.http.post('http://localhost:3000/users', usuarios)
+  insertarcomplementos(complementos: complementos1){
+    return this.http.post('http://localhost:5000/complemento', complementos)
   };
 
-  eliminarusuario(id: string){
-    return this.http.delete(`http://localhost:3000/users/${id}`)
+  eliminarcomplementos(id: string){
+    return this.http.delete(`http://localhost:5000/complemento/${id}`)
     
   }
 
-  editarusuarios(id: string | number, editarusuarios: usuarios1): Observable<usuarios1>{
-    return this.http.patch(`http://localhost:3000/users/${id}`, editarusuarios);
+  editarcomplementos(id: string | number, editarcomplemento: complementos1): Observable<complementos1>{
+    return this.http.put(`http://localhost:5000/complemento/${id}`, editarcomplemento);
   }
 
   //mostrar todos los usuarios
-  getusuarios() {
+  getcomplementos() {
 
-    return this.http.get('http://localhost:3000/users')
+    return this.http.get('http://localhost:5000/complemento')
   }
 
   //mostrar un usuario
-  getusuario(id: string){
-    return this.http.get(`http://localhost:3000/users/${id}`);
+  getcomplemento(id: string){
+    return this.http.get(`http://localhost:5000/complemento/${id}`);
   }
 
 }

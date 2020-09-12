@@ -19,12 +19,13 @@ export class BebidasComponent implements OnInit {
     precio: '',
   };
 
-  edit: boolean = false;
+  edit: boolean = true;
 
 
   constructor(private bebidasservice: BebidasService, private router: Router, private activedroute: ActivatedRoute) { }
 
   ngOnInit() {
+    
     
     const params = this.activedroute.snapshot.params;
     console.log(params);
@@ -33,7 +34,7 @@ export class BebidasComponent implements OnInit {
         console.log(res);
         this.bebidas = res;
         this.edit = true;
-      },
+      }, 
       err => console.error(err)
       );
     }
