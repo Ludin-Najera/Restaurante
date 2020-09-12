@@ -1,1 +1,27 @@
-<p>menu2 works!</p>
+<div>
+    <input type="radio" value="Cancelar" onclick="location.href='http://localhost:4200/perfil'" >
+    <p>Cancelar</p>
+</div>
+    
+<div class="col-md-2" *ngFor="let menu of menu">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{menu.nombre}}
+        <!-- <button class="btn btn-danger"></button> -->
+        <button class="btn btn-danger" (click)=eliminarmenu(menu.idmenu)>Eliminar</button>
+        </div>
+        
+        <img style="height: 150px; width: 100%; display: block;" src="https://www.softzone.es/app/uploads/2018/04/guest.png" class="card-img-top">
+        
+    <div class="card-body">
+        <p>{{menu.descripcion}}</p>
+        <p>{{menu.bebida}}</p>
+        <p>{{menu.servicio}}</p>
+        <a [routerLink]="['/editar_menu', menu.idmenu]" class="btn btn-info btn-block">Editar Menu</a>
+
+    </div>
+
+    </div>
+
+</div>
+
