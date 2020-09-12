@@ -1,0 +1,101 @@
+<div class="container">
+
+    <div class="registro" style="width: 50%; float: left">
+      <div class="registro-triangle"></div>
+      
+      <h2 class="registro-header">Factura</h2>
+    
+      <!--<form class="login-container"> -->
+       <form class="registro-container" method="POST">
+        <p>
+          <input type="text" [(ngModel)]="factura.serie" name='serie' placeholder="Serie" required="required"></p>
+        <p>
+          <input type="text" [(ngModel)]="factura.numerofactura" name='numerodeactura' placeholder="Numero de Factura" required="required"></p>
+          <p>
+            <input type="text" [(ngModel)]="factura.nit" name='nit' placeholder="NIT" required="required"></p>
+          <p>
+            <input type="text" [(ngModel)]="factura.nombre" name='nombre' placeholder="Nombre" required="required"></p>
+          <p>
+            <select name="status" [(ngModel)]="sellista">
+            <option [value]="item" *ngFor="let item of status">{{item}}</option>
+            </select>
+            </p>
+            <ul>
+              <li *ngFor="let item of sellista">
+                {{item}}
+              </li>
+            </ul>
+
+            <p>
+                <input type="text" [(ngModel)]="factura.monto" name='monto' placeholder="Monto" required="required"></p>
+            
+        <p>
+          <input type="submit" (click)="edit ? editar() : registrar()" value="Guardar"> <input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"> </p>
+              </form>
+    </div>
+  
+    <br>
+
+
+    <div class="registro" style="width: 50%; float: right;">
+        <div class="registro-triangle"></div>
+        
+        <h2 class="registro-header">Detalle</h2>
+      
+        <!--<form class="login-container"> -->
+         <form class="registro-container" method="POST">
+
+            <p>
+                <select name="status" [(ngModel)]="sellista">
+                <option [value]="item" *ngFor="let item of status">{{item}}</option>
+                </select>
+                </p>
+                <ul>
+                  <li *ngFor="let item of sellista">
+                    {{item}}
+                  </li>
+                </ul>
+
+                
+            <p>
+                <select name="status" [(ngModel)]="sellista">
+                <option [value]="item" *ngFor="let item of status">{{item}}</option>
+                </select>
+                </p>
+                <ul>
+                    <li *ngFor="let item of sellista">
+                    {{item}}
+                    </li>
+                </ul>
+
+
+                    <p>
+                        <select name="status" [(ngModel)]="sellista">
+                        <option [value]="item" *ngFor="let item of status">{{item}}</option>
+                        </select>
+                        </p>
+                        <ul>
+                          <li *ngFor="let item of sellista">
+                            {{item}}
+                          </li>
+                        </ul>
+        
+          <p>
+            <input type="text" [(ngModel)]="factura.serie" name='serie' placeholder="Serie" required="required"></p>
+          <p>
+            <input type="text" [(ngModel)]="factura.numerofactura" name='numerodeactura' placeholder="Numero de Factura" required="required"></p>
+              <p>
+                  <input type="text" [(ngModel)]="factura.monto" name='monto' placeholder="Monto" required="required"></p>
+              
+          <p>
+            <input type="submit" (click)="edit ? editar() : registrar()" value="Agregar"></p>
+                </form>
+      </div>
+    
+
+
+  
+
+
+  
+  </div>

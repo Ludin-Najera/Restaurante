@@ -12,10 +12,10 @@ class LogRoutes {
     }
     config() {
         this.router.get('/', Serviciocontroller_1.default.list);
-        this.router.get('/:id', Serviciocontroller_1.default.getone);
+        this.router.get('/:idtiposervicio', Serviciocontroller_1.default.getone);
         this.router.post('/', Serviciocontroller_1.default.create);
-        this.router.put('/:id', Serviciocontroller_1.default.update);
-        this.router.delete('/:id', Serviciocontroller_1.default.delete);
+        this.router.put('/:idtiposervicio', Serviciocontroller_1.default.update);
+        this.router.delete('/:idtiposervicio', Serviciocontroller_1.default.delete);
     }
 }
 const logRoutes = new LogRoutes();

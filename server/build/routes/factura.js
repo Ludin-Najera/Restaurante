@@ -12,10 +12,10 @@ class LogRoutes {
     }
     config() {
         this.router.get('/', Facturacontroller_1.default.list);
-        this.router.get('/:id', Facturacontroller_1.default.getone);
+        this.router.get('/:idfactura', Facturacontroller_1.default.getone);
         this.router.post('/', Facturacontroller_1.default.create);
-        this.router.put('/:id', Facturacontroller_1.default.update);
-        this.router.delete('/:id', Facturacontroller_1.default.delete);
+        this.router.put('/:idfactura', Facturacontroller_1.default.update);
+        this.router.delete('/:idfactura', Facturacontroller_1.default.delete);
     }
 }
 const logRoutes = new LogRoutes();

@@ -6,6 +6,8 @@ import { bebidas1 } from '../models/bebidas';
 import { complementos1 } from '../models/complementos';
 import { tiposervicio1 } from '../models/tiposervicio';
 import { menu1 } from '../models/menu';
+import { factura1 } from '../models/factura';
+import { detallepedido1 } from '../models/detallepedido';
 
 //login
 
@@ -199,6 +201,80 @@ export class MenuService {
   //mostrar un menu
   getmenu(id: string){
     return this.http.get(`http://localhost:5000/menu/${id}`);
+  }
+
+}
+
+
+
+//factura
+@Injectable({
+  providedIn: 'root'
+})
+export class FacturaService {
+
+  constructor(private http: HttpClient){}
+
+  insertarfactura(factura: factura1){
+    return this.http.post('http://localhost:5000/factura', factura)
+  };
+
+  eliminarfactura(id: string){
+    return this.http.delete(`http://localhost:5000/factura/${id}`)
+    
+  }
+
+  editarfactura(id: string | number, factura: factura1): Observable<factura1>{
+    return this.http.put(`http://localhost:5000/factura/${id}`, factura);
+  }
+
+  //mostrar todos las facturas
+  getfacturas() {
+
+    return this.http.get('http://localhost:5000/factura')
+  }
+
+  //mostrar una factura
+  getfactura(id: string){
+    return this.http.get(`http://localhost:5000/factura/${id}`);
+  }
+
+}
+
+
+
+
+
+//detallepedido
+@Injectable({
+  providedIn: 'root'
+})
+export class DetallepedidoService{
+
+  constructor(private http: HttpClient){}
+
+  insertardetallepedido(detallepedido: detallepedido1){
+    return this.http.post('http://localhost:5000/detalle', detallepedido)
+  };
+
+  eliminardetallepedido(id: string){
+    return this.http.delete(`http://localhost:5000/detalle/${id}`)
+    
+  }
+
+  editardetallepedido(id: string | number, detallepedido: detallepedido1): Observable<detallepedido1>{
+    return this.http.put(`http://localhost:5000/detalle/${id}`, detallepedido);
+  }
+
+  //mostrar todos los detalles
+  getdetallepedido() {
+
+    return this.http.get('http://localhost:5000/detalle')
+  }
+
+  //mostrar un detalle
+  getdetallepedidos(id: string){
+    return this.http.get(`http://localhost:5000/detalle/${id}`);
   }
 
 }
