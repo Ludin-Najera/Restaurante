@@ -57,7 +57,7 @@ class MenuController{
               res.status(500).json({status: 'error'});
             }
           });
-      res.json({message: 'menu eliminado'});
+      res.status(200).json({message: 'menu eliminado'});
     }
 
     public async getone (req: Request, res: Response) {

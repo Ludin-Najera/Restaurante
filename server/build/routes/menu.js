@@ -15,7 +15,7 @@ class LogRoutes {
         this.router.get('/:id', Menucontroller_1.default.getone);
         this.router.post('/', Menucontroller_1.default.create);
         this.router.put('/:id', Menucontroller_1.default.update);
-        this.router.delete('/:id', Menucontroller_1.default.delete);
+        this.router.delete('/:idmenu', Menucontroller_1.default.delete);
     }
 }
 const logRoutes = new LogRoutes();
