@@ -9,7 +9,7 @@
         <p>
           <input type="text" [(ngModel)]="complementos.nombre" name='nombre' placeholder="Nombre" required="required"></p>
         <p>
-            <input type="text" [(ngModel)]="Complementos.precio" name='precio' placeholder="Precio" required="required"></p>
+            <input type="text" [(ngModel)]="complementos.precio" name='precio' placeholder="Precio" required="required"></p>
         <p>
           <input type="submit" (click)="edit ? editar() : registrar()" value="Guardar"><input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"> </p>
       </form>
