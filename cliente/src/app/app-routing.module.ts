@@ -10,6 +10,8 @@ import { ComplementosComponent } from "./components/complementos/complementos.co
 import { Complementos2Component } from "./components/complementos2/complementos2.component";
 import { TiposervicioComponent } from './components/tiposervicio/tiposervicio.component';
 import { Tiposervicio2Component } from './components/tiposervicio2/tiposervicio2.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { Menu2Component } from './components/menu2/menu2.component';
 
 const routes: Routes = [
   { 
@@ -72,6 +74,18 @@ const routes: Routes = [
   {
     path: 'editar_tiposervicio/:idtiposervicio',
     component: TiposervicioComponent
+  },
+  {
+    path: 'crear_menu',
+    component: MenuComponent
+  },
+  {
+    path: 'editar_menu',
+    component: Menu2Component
+  },
+  {
+    path: 'editar_menu/:idmenu',
+    component: MenuComponent
   }
 
   

@@ -50,7 +50,7 @@ class ServicioController {
                 console.log(error);
                 return res.status(500).send(error);
             }
-            return res.status(200).send('servicio guardado');
+            return res.status(200).json('servicio guardado');
         });
     }
     delete(req, res) {

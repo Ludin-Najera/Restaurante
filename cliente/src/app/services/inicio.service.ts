@@ -5,6 +5,7 @@ import { usuarios1 } from '../models/usuarios';
 import { bebidas1 } from '../models/bebidas';
 import { complementos1 } from '../models/complementos';
 import { tiposervicio1 } from '../models/tiposervicio';
+import { menu1 } from '../models/menu';
 
 //login
 
@@ -82,7 +83,7 @@ export class BebidasService {
   //mostrar todas las bebidas
   getbebidas() {
 
-    return this.http.get('http://localhost:5000/bebida')
+    return this.http.get('http://localhost:5000/bebida');
   };
 
   //mostrar una bebida
@@ -162,6 +163,42 @@ export class TiposervicioService {
   //mostrar un tiposervicio
   gettiposervicio(id: string){
     return this.http.get(`http://localhost:5000/servicio/${id}`);
+  }
+
+}
+
+
+
+//menu
+@Injectable({
+  providedIn: 'root'
+})
+export class MenuService {
+
+  constructor(private http: HttpClient){}
+
+  insertarmenu(menu: menu1){
+    return this.http.post('http://localhost:5000/menu', menu)
+  };
+
+  eliminarmenu(id: string){
+    return this.http.delete(`http://localhost:5000/menu/${id}`)
+    
+  }
+
+  editarmenu(id: string | number, menu: menu1): Observable<menu1>{
+    return this.http.put(`http://localhost:5000/menu/${id}`, menu);
+  }
+
+  //mostrar todos los menu
+  getmenus() {
+
+    return this.http.get('http://localhost:5000/menu')
+  }
+
+  //mostrar un menu
+  getmenu(id: string){
+    return this.http.get(`http://localhost:5000/menu/${id}`);
   }
 
 }
