@@ -29,14 +29,12 @@ class DetalleController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const actualiza = yield database_1.default.query('UPDATE detallepedidos set ? WHERE iddetallepedidos= ?', [req.body, id], (error, results) => {
+            const { iddetallepedidos } = req.params;
+            const { idmenu, idcomplementos, idbebidas, cantidad, total } = req.body;
+            const actualiza = yield database_1.default.query('UPDATE detallepedidos set ? WHERE iddetallepedidos= ?', [req.body, iddetallepedidos], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
                 }
             });
             return res.status(200).send('detalle fue modificado');
@@ -57,14 +55,10 @@ class DetalleController {
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM detallepedidos WHERE iddetallepedidos = ?', [id], (error, results) => {
+            const { iddetallepedidos } = req.params;
+            yield database_1.default.query('DELETE FROM detallepedidos WHERE iddetallepedidos = ?', [iddetallepedidos], (error, results) => {
                 if (error) {
-                    console.log(error);
                     res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
                 }
             });
             res.json({ message: 'detalle eleminado' });
@@ -72,8 +66,8 @@ class DetalleController {
     }
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT a.iddetallepedidos,a.cantidad,d.nombre as menu,b.nombre as bebida, c.nombre as complementos, a.total FROM detallepedidos a INNER JOIN bebidas b ON a.idbebidas=b.idbebidas INNER JOIN complementos c ON a.idcomplementos=c.idcomplementos INNER JOIN menu d ON a.idmenu=d.idmenu WHERE iddetallepedidos= ?', [id], (error, results) => {
+            const { iddetallepedidos } = req.params;
+            const carga = yield database_1.default.query('SELECT a.iddetallepedidos,a.cantidad,d.nombre as menu,b.nombre as bebida, c.nombre as complementos, a.total FROM detallepedidos a INNER JOIN bebidas b ON a.idbebidas=b.idbebidas INNER JOIN complementos c ON a.idcomplementos=c.idcomplementos INNER JOIN menu d ON a.idmenu=d.idmenu WHERE iddetallepedidos= ?', [iddetallepedidos], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });

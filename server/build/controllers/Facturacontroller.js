@@ -29,14 +29,12 @@ class FacturaController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const actualiza = yield database_1.default.query('UPDATE factura set ? WHERE idfactura= ?', [req.body, id], (error, results) => {
+            const { idfactura } = req.params;
+            const { serie, numerofactura, nit, nombre, status, id, monto } = req.body;
+            const actualiza = yield database_1.default.query('UPDATE factura set ? WHERE idfactura= ?', [req.body, idfactura], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
                 }
             });
             return res.status(200).send('factura fue modificada');
@@ -57,14 +55,11 @@ class FacturaController {
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM factura WHERE idfactura = ?', [id], (error, results) => {
+            const { idfactura } = req.params;
+            yield database_1.default.query('DELETE FROM factura WHERE idfactura = ?', [idfactura], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
                 }
             });
             res.json({ message: 'factura eliminada' });
@@ -72,8 +67,8 @@ class FacturaController {
     }
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM factura WHERE idfactura= ?', [id], (error, results) => {
+            const { idfactura } = req.params;
+            const carga = yield database_1.default.query('SELECT * FROM factura WHERE idfactura= ?', [idfactura], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });

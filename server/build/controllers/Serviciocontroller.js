@@ -29,14 +29,12 @@ class ServicioController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const actualiza = yield database_1.default.query('UPDATE tiposervicio set ? WHERE idtiposervicio= ?', [req.body, id], (error, results) => {
+            const { idtiposervicio } = req.params;
+            const { nombre } = req.body;
+            const actualiza = yield database_1.default.query('UPDATE tiposervicio set ? WHERE idtiposervicio= ?', [req.body, idtiposervicio], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
                 }
             });
             return res.status(200).send('servicio fue modificada');
@@ -57,14 +55,11 @@ class ServicioController {
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM servicio WHERE idtiposervicio = ?', [id], (error, results) => {
+            const { idtiposervicio } = req.params;
+            yield database_1.default.query('DELETE FROM servicio WHERE idtiposervicio = ?', [idtiposervicio], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
                 }
             });
             res.json({ message: 'servicio eliminado' });
@@ -72,8 +67,8 @@ class ServicioController {
     }
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM tiposervicio WHERE idtiposervicio= ?', [id], (error, results) => {
+            const { idtiposervicio } = req.params;
+            const carga = yield database_1.default.query('SELECT * FROM tiposervicio WHERE idtiposervicio= ?', [idtiposervicio], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
