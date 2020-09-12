@@ -14,10 +14,10 @@ class LogRoutes {
     config(): void{
 
         this.router.get('/', ComplementosController.list);
-        this.router.get('/:id',ComplementosController.getone);
+        this.router.get('/:idcomplementos',ComplementosController.getone);
         this.router.post('/', ComplementosController.create);
-        this.router.put('/:id',ComplementosController.update);
-        this.router.delete('/:id',ComplementosController.delete);
+        this.router.put('/:idcomplementos',ComplementosController.update);
+        this.router.delete('/:idcomplementos',ComplementosController.delete);
     }
 
 }
