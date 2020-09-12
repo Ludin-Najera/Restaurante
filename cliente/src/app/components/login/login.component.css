@@ -1,0 +1,22 @@
+.cajas{
+    border-radius: 25px;
+}
+.boton{
+    border-radius: 15px;
+}
+
+.login-container{
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);;
+}
+
+.login-header{
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.container{
+
+    position: absolute;
+    top: 125px;
+}
