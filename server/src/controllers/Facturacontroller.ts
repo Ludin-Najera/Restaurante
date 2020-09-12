@@ -17,7 +17,7 @@ class FacturaController{
 
     public async update (req: Request, res: Response){
       const {idfactura}=req.params;
-      const {serie,numerofactura,nit,nombre,status,id,monto} = req.body;
+      const {serie,numerofactura,nit,nombre,status,monto,id,iddetallepedidos} = req.body;
       const actualiza = await  pool.query('UPDATE factura set ? WHERE idfactura= ?',[req.body,idfactura] ,(error, results) => {
         if (error) {
           console.log(error);
@@ -28,9 +28,9 @@ class FacturaController{
     }
 
     public  create (req: Request, res: Response){
-      const {serie,numerofactura,nit,nombre,status,id,monto} = req.body;
+      const {serie,numerofactura,nit,nombre,status,id,monto,iddetallepedidos} = req.body;
       const newLink={
-          serie,numerofactura,nit,nombre,status,id,monto
+          serie,numerofactura,nit,nombre,status,monto,id,iddetallepedidos
       };
 
        pool.query('INSERT INTO factura  set ?', [newLink],(error, results, fields) =>{
