@@ -1,0 +1,17 @@
+.container{
+
+    background-color:rgba(14, 136, 242,0.5);
+    width: auto;
+    border-radius: 10px;
+    position:absolute;
+    top:190px;
+    right:650px;
+    height:185px;
+}
+
+.cajitas{
+
+    border-radius: 10px;
+    width: 320px;
+}
+

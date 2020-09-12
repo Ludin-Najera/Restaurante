@@ -8,13 +8,13 @@
       <!--<form class="login-container"> -->
        <form class="registro-container" method="POST">
         <p>
-          <input type="text" [(ngModel)]="factura.serie" name='serie' placeholder="Serie" required="required"></p>
+          <input class ="cajitas" type="text" [(ngModel)]="factura.serie" name='serie' placeholder="Serie" required="required"></p>
         <p>
-          <input type="text" [(ngModel)]="factura.numerofactura" name='numerodeactura' placeholder="Numero de Factura" required="required"></p>
+          <input class ="cajitas" type="text" [(ngModel)]="factura.numerofactura" name='numerodeactura' placeholder="Numero de Factura" required="required"></p>
           <p>
-            <input type="text" [(ngModel)]="factura.nit" name='nit' placeholder="NIT" required="required"></p>
+            <input class ="cajitas" type="text" [(ngModel)]="factura.nit" name='nit' placeholder="NIT" required="required"></p>
           <p>
-            <input type="text" [(ngModel)]="factura.nombre" name='nombre' placeholder="Nombre" required="required"></p>
+            <input class ="cajitas" type="text" [(ngModel)]="factura.nombre" name='nombre' placeholder="Nombre" required="required"></p>
           <p>
             <select name="status" [(ngModel)]="sellista">
             <option [value]="item" *ngFor="let item of status">{{item}}</option>
@@ -82,9 +82,9 @@
         
         
           <p>
-            <input type="text" [(ngModel)]="detallepedido.cantidad" name='cantidad' placeholder="Cantidad" required="required"></p>
+            <input class ="cajitas" type="text" [(ngModel)]="detallepedido.cantidad" name='cantidad' placeholder="Cantidad" required="required"></p>
               <p>
-                  <input type="text" [(ngModel)]="detallepedido.total" name='Total' placeholder="Total" required="required"></p>
+                  <input class ="cajitas" type="text" [(ngModel)]="detallepedido.total" name='Total' placeholder="Total" required="required"></p>
               
           <p>
             <input type="submit" (click)="edit ? editar() : registrar()" value="Agregar"></p>

@@ -7,7 +7,7 @@
     
       <form class="registro-container" method="POST">
         <p>
-          <input type="text" [(ngModel)]="tiposervicio.nombre" name='nombre' placeholder="Nombre" required="required"></p>
+          <input class="cajitas" type="text" [(ngModel)]="tiposervicio.nombre" name='nombre' placeholder="Nombre" required="required"></p>
         <p>
           <input type="submit" (click)="edit ? editar() : registrar()" value="Guardar"><input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"> </p>
       </form>
