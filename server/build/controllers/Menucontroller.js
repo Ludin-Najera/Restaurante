@@ -62,7 +62,7 @@ class MenuController {
                     res.status(500).json({ status: 'error' });
                 }
             });
-            res.json({ message: 'menu eliminado' });
+            res.status(200).json({ message: 'menu eliminado' });
         });
     }
     getone(req, res) {
