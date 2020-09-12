@@ -9,6 +9,7 @@ import  menu from './routes/menu';
 import  servicio from './routes/servicio';
 import  factura from './routes/factura';
 import  detalle from './routes/detalle';
+import  entregado from './routes/entregado';
 
 
 class Server{
@@ -38,6 +39,7 @@ class Server{
         this.app.use('/servicio', servicio);
         this.app.use('/factura', factura);
         this.app.use('/detalle', detalle);
+        this.app.use('/entregado', entregado);
     }
 
     start(): void{
