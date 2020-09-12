@@ -5,7 +5,7 @@ import pool from '../database'
 class DetalleController{
 
     public async list (req: Request, res: Response){
-        const inicio = await pool.query('SELECT a.iddetallepedidos,a.cantidad,d.nombre as menu,b.nombre as bebida, c.nombre as complementos, a.total FROM detallepedidos a INNER JOIN bebidas b ON a.idbebidas=b.idbebidas INNER JOIN complementos c ON a.idcomplementos=c.idcomplementos INNER JOIN menu d ON a.idmenu=d.idmenu', (error, results) => {
+        const inicio = await pool.query('SELECT a.iddetallepedidos,a.cantidad,d.nombre as menu,b.nombre as bebida, c.nombre as complementos, a.total, f.status FROM detallepedidos a INNER JOIN bebidas b ON a.idbebidas=b.idbebidas INNER JOIN complementos c ON a.idcomplementos=c.idcomplementos INNER JOIN menu d ON a.idmenu=d.idmenu INNER JOIN factura f ON a.iddetallepedidos=f.idfactura', (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
