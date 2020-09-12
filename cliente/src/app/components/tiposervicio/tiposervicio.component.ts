@@ -15,7 +15,7 @@ export class TiposervicioComponent implements OnInit {
     nombre: '',
   };
 
-  edit: boolean = true;
+  edit: boolean = false;
 
   constructor(private tiposervicioservice: TiposervicioService, private router: Router, private activedroute: ActivatedRoute) { }
 

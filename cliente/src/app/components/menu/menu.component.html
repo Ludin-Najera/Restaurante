@@ -1,0 +1,57 @@
+<div class="container">
+
+    <div class="registro">
+      <div class="registro-triangle"></div>
+      
+      <h2 class="registro-header">Menu</h2>
+    
+      <!--<form class="login-container"> -->
+       <form class="registro-container" method="POST">
+        <p>
+          <input type="text" [(ngModel)]="menu.nombre" name='nombre' placeholder="Nombre" required="required"></p>
+        <p>
+          <input type="text" [(ngModel)]="menu.descripcion" name='descripcion' placeholder="Decripcion" required="required"></p>
+          <p>
+            <input type="text" [(ngModel)]="menu.precio" name='precio' placeholder="Precio" required="required"></p>
+        
+            <p>
+            <select name="complementos" [(ngModel)]="selcomplementos">
+            <option [value]="item" *ngFor="let item of complementos">{{item}}</option>
+            </select>
+            </p>
+            <ul>
+              <li *ngFor="let item of selcomplementos">
+                {{item}}
+              </li>
+            </ul>
+
+            <p>
+                <select name="bebidas" [(ngModel)]="selbebidas">
+                <option [value]="item" *ngFor="let item of bebidas">{{item}}</option>
+                </select>
+                </p>
+                <ul>
+                  <li *ngFor="let item of selbebidas">
+                    {{item}}
+                  </li>
+                </ul>
+
+                <p>
+                    <select name="tiposervicio" [(ngModel)]="seltiposervicio">
+                    <option [value]="item" *ngFor="let item of tiposervicio">{{item}}</option>
+                    </select>
+                    </p>
+                    <ul>
+                      <li *ngFor="let item of seltiposervicio">
+                        {{item}}
+                      </li>
+                    </ul>
+
+
+        <p>
+          <input type="submit" (click)="edit ? editar() : registrar()" value="Guardar"> <input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"> </p>
+              </form>
+    </div>
+  
+  
+  </div>

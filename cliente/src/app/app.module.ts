@@ -17,6 +17,8 @@ import { ComplementosComponent } from './components/complementos/complementos.co
 import { Complementos2Component } from './components/complementos2/complementos2.component';
 import { TiposervicioComponent } from './components/tiposervicio/tiposervicio.component';
 import { Tiposervicio2Component } from './components/tiposervicio2/tiposervicio2.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { Menu2Component } from './components/menu2/menu2.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { Tiposervicio2Component } from './components/tiposervicio2/tiposervicio2
     ComplementosComponent,
     Complementos2Component,
     TiposervicioComponent,
-    Tiposervicio2Component
+    Tiposervicio2Component,
+    MenuComponent,
+    Menu2Component
   ],
   imports: [
     BrowserModule,

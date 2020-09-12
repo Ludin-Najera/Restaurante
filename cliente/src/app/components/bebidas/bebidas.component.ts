@@ -19,7 +19,7 @@ export class BebidasComponent implements OnInit {
     precio: '',
   };
 
-  edit: boolean = true;
+  edit: boolean = false;
 
 
   constructor(private bebidasservice: BebidasService, private router: Router, private activedroute: ActivatedRoute) { }

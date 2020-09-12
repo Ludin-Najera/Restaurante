@@ -17,7 +17,7 @@ export class ComplementosComponent implements OnInit {
     precio: '',
   };
 
-  edit: boolean = true;
+  edit: boolean = false;
 
   constructor(private complementosservice: ComplementosService, private router: Router, private activedroute: ActivatedRoute ) { }
 

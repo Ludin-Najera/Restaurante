@@ -41,7 +41,7 @@ class ServicioController{
 
        }
 
-       return res.status(200).send('servicio guardado');
+       return res.status(200).json('servicio guardado');
 
       });
       
