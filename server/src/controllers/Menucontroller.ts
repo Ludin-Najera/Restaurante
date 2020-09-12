@@ -5,7 +5,7 @@ import pool from '../database'
 class MenuController{
 
     public async list (req: Request, res: Response){
-        const inicio = await pool.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas', (error, results) => {
+        const inicio = await pool.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio,d.nombre as complemento FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas INNER JOIN complementos d ON a.idcomplementos=d.idcomplentos', (error, results) => {
             if (error) {
               console.log(error);
               res.status(500).json({status: 'error'});
@@ -24,7 +24,7 @@ class MenuController{
           return res.status(500).json({error});
         }
       });
-      return res.status(200).send('menu fue modificada');
+      return res.status(200).json('menu fue modificada');
 
     }
 
@@ -41,7 +41,7 @@ class MenuController{
 
        }
 
-       return res.status(200).send('menu guardado');
+       return res.status(200).json('menu guardado');
 
       });
       
