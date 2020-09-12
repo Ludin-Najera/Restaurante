@@ -24,7 +24,7 @@ class ServicioController{
           res.status(500).json({status: 'error'});
         }
       });
-      return res.status(200).send('servicio fue modificada');
+      return res.status(200).json('servicio fue modificada');
 
     }
 
