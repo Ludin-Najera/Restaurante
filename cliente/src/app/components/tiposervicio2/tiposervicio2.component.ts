@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Host, HostBinding } from '@angular/core';
+import { TiposervicioService } from '../../services/inicio.service';
+import { tiposervicio1 } from '../../models/tiposervicio';
 
 @Component({
   selector: 'app-tiposervicio2',
@@ -7,9 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tiposervicio2Component implements OnInit {
 
-  constructor() { }
+  @HostBinding('class') classes = 'row';
 
-  ngOnInit(): void {
+  tiposervicio: any = [];
+
+  constructor(private tiposervicioservice: TiposervicioService) { }
+
+  ngOnInit() {
+    this.actualizar();
   }
+
+  actualizar(){
+    this.tiposervicioservice.gettiposervicios().subscribe(
+      res => {
+        this.tiposervicio = res;
+      },
+        
+      err => console.error(err)
+    );
+  }
+
+  eliminarbebidas(id: string){
+    this.tiposervicioservice.eliminartiposervicio(id).subscribe(
+      res => {
+        console.log(res)
+        this.actualizar();
+      },
+      err => console.log(err)
+    );
+  }
+
+  editarbebidas(id: string){
+    console.log(id);
+  }
+
+
+
+
 
 }
