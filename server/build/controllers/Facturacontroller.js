@@ -30,7 +30,7 @@ class FacturaController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { idfactura } = req.params;
-            const { serie, numerofactura, nit, nombre, status, id, monto } = req.body;
+            const { serie, numerofactura, nit, nombre, status, monto, id, iddetallepedidos } = req.body;
             const actualiza = yield database_1.default.query('UPDATE factura set ? WHERE idfactura= ?', [req.body, idfactura], (error, results) => {
                 if (error) {
                     console.log(error);
@@ -41,9 +41,9 @@ class FacturaController {
         });
     }
     create(req, res) {
-        const { serie, numerofactura, nit, nombre, status, id, monto } = req.body;
+        const { serie, numerofactura, nit, nombre, status, id, monto, iddetallepedidos } = req.body;
         const newLink = {
-            serie, numerofactura, nit, nombre, status, id, monto
+            serie, numerofactura, nit, nombre, status, monto, id, iddetallepedidos
         };
         database_1.default.query('INSERT INTO factura  set ?', [newLink], (error, results, fields) => {
             if (error) {
