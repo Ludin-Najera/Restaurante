@@ -40,7 +40,7 @@ class FacturaController{
 
        }
 
-       return res.status(200).send('factura guardada');
+       return res.status(200).json('factura guardada');
 
       });
       

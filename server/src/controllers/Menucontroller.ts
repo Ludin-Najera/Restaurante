@@ -41,7 +41,7 @@ class MenuController{
 
        }
 
-       return res.status(200).send('menu guardado');
+       return res.status(200).json('menu guardado');
 
       });
       

@@ -24,7 +24,7 @@ class DetalleController{
           res.status(500).json({status: 'error'});
         }
       });
-      return res.status(200).send('detalle fue modificado');
+      return res.status(200).json('detalle fue modificado');
 
     }
 
@@ -41,7 +41,7 @@ class DetalleController{
 
        }
 
-       return res.status(200).send('detalle guardado');
+       return res.status(200).json('detalle guardado');
 
       });
       
