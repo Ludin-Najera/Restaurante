@@ -12,10 +12,10 @@ class LogRoutes {
     }
     config() {
         this.router.get('/', Detallecontroller_1.default.list);
-        this.router.get('/:id', Detallecontroller_1.default.getone);
+        this.router.get('/:iddetallepedidos', Detallecontroller_1.default.getone);
         this.router.post('/', Detallecontroller_1.default.create);
-        this.router.put('/:id', Detallecontroller_1.default.update);
-        this.router.delete('/:id', Detallecontroller_1.default.delete);
+        this.router.put('/:iddetallepedidos', Detallecontroller_1.default.update);
+        this.router.delete('/:iddetallepedidos', Detallecontroller_1.default.delete);
     }
 }
 const logRoutes = new LogRoutes();

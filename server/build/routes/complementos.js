@@ -12,10 +12,10 @@ class LogRoutes {
     }
     config() {
         this.router.get('/', Complementoscontroller_1.default.list);
-        this.router.get('/:id', Complementoscontroller_1.default.getone);
+        this.router.get('/:idcomplementos', Complementoscontroller_1.default.getone);
         this.router.post('/', Complementoscontroller_1.default.create);
-        this.router.put('/:id', Complementoscontroller_1.default.update);
-        this.router.delete('/:id', Complementoscontroller_1.default.delete);
+        this.router.put('/:idcomplementos', Complementoscontroller_1.default.update);
+        this.router.delete('/:idcomplementos', Complementoscontroller_1.default.delete);
     }
 }
 const logRoutes = new LogRoutes();

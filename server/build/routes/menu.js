@@ -12,9 +12,9 @@ class LogRoutes {
     }
     config() {
         this.router.get('/', Menucontroller_1.default.list);
-        this.router.get('/:id', Menucontroller_1.default.getone);
+        this.router.get('/:idmenu', Menucontroller_1.default.getone);
         this.router.post('/', Menucontroller_1.default.create);
-        this.router.put('/:id', Menucontroller_1.default.update);
+        this.router.put('/:idmenu', Menucontroller_1.default.update);
         this.router.delete('/:idmenu', Menucontroller_1.default.delete);
     }
 }
