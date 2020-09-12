@@ -29,14 +29,12 @@ class MenuController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const actualiza = yield database_1.default.query('UPDATE menu set ? WHERE idmenu= ?', [req.body, id], (error, results) => {
+            const { idmenu } = req.params;
+            const { nombre, descripcion, precio, idcomplementos, idbebidas, idtiposervicio } = req.body;
+            const actualiza = yield database_1.default.query('UPDATE menu set ? WHERE idmenu= ?', [req.body, idmenu], (error, results) => {
                 if (error) {
                     console.log(error);
-                    res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
+                    return res.status(500).json({ error });
                 }
             });
             return res.status(200).send('menu fue modificada');
@@ -57,14 +55,11 @@ class MenuController {
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM menu WHERE idmenu = ?', [id], (error, results) => {
+            const { idmenu } = req.params;
+            yield database_1.default.query('DELETE FROM menu WHERE idmenu = ?', [idmenu], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
-                }
-                else {
-                    //res.status(200).json(results);
                 }
             });
             res.json({ message: 'menu eliminado' });
@@ -72,8 +67,8 @@ class MenuController {
     }
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas WHERE a.idmenu= ?', [id], (error, results) => {
+            const { idmenu } = req.params;
+            const carga = yield database_1.default.query('SELECT a.idmenu,a.nombre, a.descripcion,a.precio ,c.nombre as bebida, b.nombre as servicio FROM menu a INNER JOIN tiposervicio b ON a.idtiposervicio=b.idtiposervicio INNER JOIN bebidas c ON a.idbebidas=c.idbebidas WHERE a.idmenu= ?', [idmenu], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });

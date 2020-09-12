@@ -29,17 +29,15 @@ class ComplementosController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const actualiza = yield database_1.default.query('UPDATE complementos set ? WHERE idcomplementos= ?', [req.body, id], (error, results) => {
+            const { idcomplementos } = req.params;
+            const { nombre, precio } = req.body;
+            yield database_1.default.query(`UPDATE bebidas set ? WHERE idcomplementos= ?`, [req.body, idcomplementos], (error, result) => {
                 if (error) {
                     console.log(error);
-                    res.status(500).json({ status: 'error' });
-                }
-                else {
-                    // res.status(200).json(results);
+                    return res.status(500).json({ error });
                 }
             });
-            return res.status(200).send('complemento fue modificada');
+            res.status(201).json({ message: 'complemento fue modificado' });
         });
     }
     create(req, res) {
@@ -47,33 +45,29 @@ class ComplementosController {
         const newLink = {
             nombre, precio
         };
-        database_1.default.query('INSERT INTO complementos  set ?', [newLink], (error, results, fields) => {
+        database_1.default.query('INSERT INTO complementos set ?', [newLink], (error, results, fields) => {
             if (error) {
                 console.log(error);
                 return res.status(500).send(error);
             }
-            return res.status(200).send('complemento guardado');
+            return res.status(200).json('complemento guardado');
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM complementos WHERE idcomplementos = ?', [id], (error, results) => {
+            const { idbebidas } = req.params;
+            yield database_1.default.query('DELETE FROM complementos WHERE idcomplementos = ?', [idbebidas], (error, results) => {
                 if (error) {
-                    console.log(error);
-                    res.status(500).json({ status: 'error' });
-                }
-                else {
-                    // res.status(200).json(results);
+                    return res.status(500).json({ status: 'error' });
                 }
             });
-            res.json({ message: 'complemento eliminado' });
+            res.status(201).json({ message: 'complemento eliminadeo' });
         });
     }
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const carga = yield database_1.default.query('SELECT * FROM complementos WHERE idcomplementos= ?', [id], (error, results) => {
+            const { idbebidas } = req.params;
+            yield database_1.default.query('SELECT * FROM complementos WHERE idcomplementos= ?', [idbebidas], (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });
