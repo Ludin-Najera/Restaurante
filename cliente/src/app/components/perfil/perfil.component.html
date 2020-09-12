@@ -1,120 +1,64 @@
 
-
 <html>
 	<head>
 		<title>Menu Desplegable</title>
-		<style type="text/css">
-			
-			* {
-				margin:0px;
-				padding:3px;
-			}
-			
-			#header {
-				margin:auto;
-				width:1200px;
-				font-family:Arial, Helvetica, sans-serif;
-			}
-			
-			ul, ol {
-				list-style:none;
-			}
-			
-			.nav {
-				width:1200px; /*Le establecemos un ancho*/
-				margin:0 auto; /*Centramos automaticamente*/
-			}
- 
-			.nav > li {
-				float:left;
-			}
-			
-			.nav li a {
-				background-color:rgb(15, 46, 71);
-				color:rgb(245, 241, 241)
-				text-decoration:none;
-				padding:50px 50px;
-				display:block;
-			}
-			
-			.nav li a:hover {
-				background-color:#30cbd6;
-			}
-			
-			.nav li ul {
-				display:none;
-				position:absolute;
-				min-width:140px;
-			}
-			
-			.nav li:hover > ul {
-				display:block;
-			}
-			
-			.nav li ul li {
-				position:relative;
-			}
-			
-			.nav li ul li ul {
-				right:-140px;
-				top:0px;
-			}
-			
-		</style>
+		<link rel="stylesheet" href="perfil.component.css">
 	</head>
 	<body>
 		<div id="header">
+			<div class = "posicionamiento">
 			<nav> <!-- Aqui estamos iniciando la nueva etiqueta nav -->
 				<ul class="nav">
-					<li><a>Usuarios</a>
+					<li><a class ="menus">Usuarios</a>
 						<ul>
-							<li><a href="/crear_usuarios">Agregar Usuarios</a></li>
-							<li><a href="/editar_usuarios">Editar Usuarios</a></li>
+							<li><a class ="menus" href="/crear_usuarios">Agregar Usuarios</a></li>
+							<li><a class ="menus" href="/editar_usuarios">Editar Usuarios</a></li>
 						</ul>
 					</li>
-					<li><a>Bebidas</a>
+					<li><a class ="menus" >Bebidas</a>
 						<ul>
-							<li><a href="/crear_bebidas">Agregar Bebidas</a></li>
-							<li><a href="/editar_bebidas">Editar Bebidas</a></li>
+							<li><a class ="menus" href="/crear_bebidas">Agregar Bebidas</a></li>
+							<li><a class ="menus" href="/editar_bebidas">Editar Bebidas</a></li>
 						</ul>
 					</li>
-					<li><a>Complementos</a>
+					<li><a class ="menus" >Complementos</a>
 						<ul>
-							<li><a href="/crear_complementos">Agregar Complementos</a></li>
-							<li><a href="/editar_complementos">Editar Complementos</a></li>
+							<li><a class ="menus" href="/crear_complementos">Agregar Complementos</a></li>
+							<li><a  class ="menus" href="/editar_complementos">Editar Complementos</a></li>
 						</ul>
 					</li>
-					<li><a>Tipo de Servicios</a>
+					<li><a class ="menus" >Tipo de Servicios</a>
 						<ul>
-							<li><a href="/crear_tiposervicio">Agregar Tipo de Servicios</a></li>
-							<li><a href="/editar_tiposervicio">Editar Tipo de Servicios</a></li>
+							<li><a class ="menus" href="/crear_tiposervicio">Agregar Tipo de Servicios</a></li>
+							<li><a class ="menus" href="/editar_tiposervicio">Editar Tipo de Servicios</a></li>
 						</ul>
 					</li>
-					<li><a>Menu</a>
+					<li><a class ="menus" >Menu</a>
 						<ul>
-							<li><a href="/crear_menu">Agregar Menu</a></li>
-							<li><a href="/editar_menu">Editar Menu</a></li>
+							<li><a class ="menus" href="/crear_menu">Agregar Menu</a></li>
+							<li><a class ="menus" href="/editar_menu">Editar Menu</a></li>
 						</ul>
 					</li>
-					<li><a>Facturacion</a>
+					<li><a class ="menus" >Facturacion</a>
 						<ul>
-							<li><a href="/crear_factura">Agregar Factura</a></li>
-							<li><a href="/editar_factura">Editar Factura</a></li>
+							<li><a class ="menus" href="/crear_factura">Agregar Factura</a></li>
+							<li><a class ="menus" href="/editar_factura">Editar Factura</a></li>
 						</ul>
 					</li>
-					<li><a>Cocina</a>
+					<li><a class ="menus">Cocina</a>
 						<ul>
-							<li><a href="/cocina">Pendientes</a></li>
+							<li><a class ="menus" href="/cocina">Pendientes</a></li>
 						</ul>
 					</li>
-					<li><a>Entregas</a>
+					<li><a class ="menus" >Entregas</a>
 						<ul>
-							<li><a href="/pendientes">Pendientes</a></li>
+							<li><a  class ="menus" href="/pendientes">Pendientes</a></li>
 						</ul>
 					</li>
 
 				</ul>
 			</nav><!-- Aqui estamos cerrando la nueva etiqueta nav -->
+		</div>
 		</div>
 	</body>
 </html>
