@@ -1,1 +1,24 @@
-<p>complementos2 works!</p>
+<div>
+    <input type="radio" value="Cancelar" onclick="location.href='http://localhost:4200/perfil'" >
+    <p>Cancelar</p>
+</div>
+    
+<div class="col-md-2" *ngFor="let complementos of complementos">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{complementos.nombre}}
+        <!-- <button class="btn btn-danger"></button> -->
+        <button class="btn btn-danger" (click)=eliminarcomplementos(complementos.idcomplementos)>Eliminar</button>
+        </div>
+        
+        <img style="height: 150px; width: 100%; display: block;" src="https://www.softzone.es/app/uploads/2018/04/guest.png" class="card-img-top">
+        
+    <div class="card-body">
+        <p>{{complementos.precio}}</p>
+        <a [routerLink]="['/editar_complementos', complementos.idcomplementos]" class="btn btn-info btn-block">Editar Complementos</a>
+
+    </div>
+
+    </div>
+
+</div>
