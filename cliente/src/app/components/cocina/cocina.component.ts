@@ -1,6 +1,6 @@
 import { Component, OnInit, Host, HostBinding } from '@angular/core';
 import { DetallepedidoService } from '../../services/inicio.service';
-import { detallepedido1 } from '../../models/detallepedido';
+import { cocina1 } from '../../models/cocina';
 
 @Component({
   selector: 'app-cocina',
