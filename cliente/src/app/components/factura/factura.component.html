@@ -89,7 +89,7 @@
                   <input class ="cajitas" type="text" [(ngModel)]="detallepedido.total" name='Total' placeholder="Total" required="required"></p>
               
           <p>
-            <input type="submit" (click)="edit ? editar() : registrar()" value="Agregar"> <input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"></p>
+            <input type="submit" (click)="Detalle" value="Agregar"> <input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"></p>
                 </form>
       </div>
     
@@ -99,135 +99,154 @@
        <tbody>
         <tr>
           <th>
-            Date
+            Menu
           </th>
+          <td>
+           
+          </td>
           <th>
-            Type
+            Complemento
           </th>
+          <td>
+           
+          </td>
           <th>
-            Description
+            Bebida
           </th>
+          <td>
+            
+          </td>
           <th>
-            Amount
+            
           </th>
+          <td>
+            
+          </td>
           <th>
-            Balance
+            Cantidad
+          </th>
+          <td>
+           
+          </td>
+          <th>
+            Total
           </th>
         </tr>
         <tr>
           <td tabindex="-1">
-            01-Jan-16
+            <input *ngFor="menu">
           </td>
           <td tabindex="-1">
-            Deposit
+           
           </td>
           <td>
-            <a tabindex="-1" href="#">
-              Cash Deposit
+            <a tabindex="-1">
+             
             </a>
           </td>
           <td tabindex="-1">
-            $1,000,000.00
+        
           </td>
           <td tabindex="-1">
-            $1,000,000.00
+   
           </td>
         </tr>
         <tr>
           <td tabindex="-1">
-            02-Jan-16
+            
           </td>
           <td tabindex="-1">
-            Debit
+      
           </td>
           <td>
             <a tabindex="-1" href="#">
-              Down Town Grocery
+              
             </a>
           </td>
           <td tabindex="-1">
-            $250.00
+          
           </td>
           <td tabindex="-1">
-            $999,750.00
+            
           </td>
         </tr>
         <tr>
           <td tabindex="-1">
-            03-Jan-16
+           
           </td>
           <td tabindex="-1">
-            Debit
+            
           </td>
           <td>
-            <a tabindex="-1" href="#">
-              Hot Coffee
+            <a tabindex="-1" >
+              
             </a>
           </td>
           <td tabindex="-1">
-            $9.00
+            
           </td>
           <td tabindex="-1">
-            $999,741.00
+           
           </td>
         </tr>
         <tr>
           <td tabindex="-1">
-            04-Jan-16
+           
           </td>
           <td tabindex="-1">
-            Debit
+            
           </td>
           <td>
-            <a tabindex="-1" href="#">
-              The Filling Station
+            <a tabindex="-1" >
+              
             </a>
           </td>
           <td tabindex="-1">
-            $88.00
+         
           </td>
           <td tabindex="-1">
-            $999,653.00
+            
           </td>
         </tr>
         <tr>
           <td tabindex="-1">
-            05-Jan-16
+            
           </td>
           <td tabindex="-1">
-            Debit
+           
           </td>
           <td>
-            <a tabindex="-1" href="#">
-              Tinker's Hardware
+            <a tabindex="-1">
+              
             </a>
           </td>
           <td tabindex="-1">
-            $3,421.00
+            
           </td>
           <td tabindex="-1">
-            $996,232.00
+            
           </td>
         </tr>
         <tr>
           <td tabindex="-1">
-            06-Jan-16
+            
           </td>
           <td tabindex="-1">
-            Debit
+           
           </td>
           <td>
-            <a tabindex="-1" href="#">
-              Cutey's Salon
+            <a tabindex="-1" >
+          
             </a>
           </td>
           <td tabindex="-1">
-            $700.00
+            
           </td>
           <td tabindex="-1">
-            $995,532.00
+            
           </td>
         </tr>
+        
       </tbody>
     </table>
 
