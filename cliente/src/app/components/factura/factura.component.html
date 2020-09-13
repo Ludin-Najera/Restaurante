@@ -89,7 +89,7 @@
                   <input class ="cajitas" type="text" [(ngModel)]="detallepedido.total" name='Total' placeholder="Total" required="required"></p>
               
           <p>
-            <input type="submit" (click)="Detalle" value="Agregar"> <input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"></p>
+            <input type="submit" (click)="detallepedido" value="Agregar"> <input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"></p>
                 </form>
       </div>
     
@@ -134,7 +134,7 @@
         </tr>
         <tr>
           <td tabindex="-1">
-            <input *ngFor="menu">
+            
           </td>
           <td tabindex="-1">
            
