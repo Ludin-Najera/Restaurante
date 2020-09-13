@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Host, HostBinding } from '@angular/core';
+import { DetallepedidoService } from '../../services/inicio.service';
+import { cocina1 } from '../../models/cocina';
 
 @Component({
   selector: 'app-entrega',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntregaComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('class') classes = 'row';
 
-  ngOnInit(): void {
+  detallepedidos: any = [];
+
+  constructor( private detallepedidosservice: DetallepedidoService ) { }
+
+  ngOnInit() {
+
+    this.detallepedidosservice.getdetallepedidos2().subscribe(
+      res => {
+        this.detallepedidos = res;
+      },
+        
+      err => console.error(err)
+    );
   }
+
 
 }

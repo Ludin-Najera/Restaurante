@@ -272,6 +272,11 @@ export class DetallepedidoService{
     return this.http.get('http://localhost:5000/detalle')
   }
 
+  getdetallepedidos2() {
+
+    return this.http.get('http://localhost:5000/entregado')
+  }
+
   //mostrar un detalle
   getdetallepedido(id: string){
     return this.http.get(`http://localhost:5000/detalle/${id}`);

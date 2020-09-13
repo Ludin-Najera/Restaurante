@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class EntregadosController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const inicio = yield database_1.default.query('SELECT a.iddetallepedidos,a.cantidad,d.nombre as menu,d.descripcion,b.nombre as bebida, c.nombre as complementos, a.total, f.status FROM detallepedidos a INNER JOIN bebidas b ON a.idbebidas=b.idbebidas INNER JOIN complementos c ON a.idcomplementos=c.idcomplementos INNER JOIN menu d ON a.idmenu=d.idmenu INNER JOIN factura f ON a.iddetallepedidos=f.idfactura WHERE f.status=3', (error, results) => {
+            const inicio = yield database_1.default.query('SELECT a.iddetallepedidos,a.cantidad,d.nombre as menu,d.descripcion,b.nombre as bebida, c.nombre as complementos, a.total, f.status FROM detallepedidos a INNER JOIN bebidas b ON a.idbebidas=b.idbebidas INNER JOIN complementos c ON a.idcomplementos=c.idcomplementos INNER JOIN menu d ON a.idmenu=d.idmenu INNER JOIN factura f ON a.iddetallepedidos=f.idfactura WHERE f.status=2', (error, results) => {
                 if (error) {
                     console.log(error);
                     res.status(500).json({ status: 'error' });

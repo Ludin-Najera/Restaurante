@@ -1,1 +1,25 @@
-<p>entrega works!</p>
+<div>
+    <input type="radio" value="Cancelar" onclick="location.href='http://localhost:4200/perfil'" >
+    <p>Cancelar</p>
+</div>
+    
+<div class="col-md-2" *ngFor="let detallepedidos of detallepedidos">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{detallepedidos.menu}}
+        <!-- <button class="btn btn-danger"></button> -->
+        <button (click)=eliminarbebidas(bebidas.idbebidas)>Terminado</button>
+        </div>
+        
+        <img style="height: 150px; width: 100%; display: block;" src="https://image.freepik.com/vector-gratis/chef-dibujos-animados-pollo-asado_119631-166.jpg" class="card-img-top">
+        
+    <div class="card-body">
+        <p>{{detallepedidos.descripcion}}</p>
+        <p>{{detallepedidos.bebida}}</p>
+        <p>{{detallepedidos.complementos}}</p>
+        
+    </div>
+
+    </div>
+
+</div>
