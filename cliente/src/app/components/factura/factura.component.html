@@ -45,37 +45,39 @@
         <!--<form class="login-container"> -->
          <form class="registro-container" method="POST">
 
+          <p>
+            <select name="menu" [(ngModel)]="selmenu">
+            <option [value]="item" *ngFor="let item of menu">{{item}}</option>
+            </select>
+            </p>
+            <ul>
+                <li *ngFor="let item of selmenu">
+                {{item}}
+                </li>
+            </ul>
+
+
             <p>
-                <select name="status" [(ngModel)]="sellista">
-                <option [value]="item" *ngFor="let item of status">{{item}}</option>
+                <select name="bebida" [(ngModel)]="selbebida">
+                <option [value]="item" *ngFor="let item of bebida">{{item}}</option>
                 </select>
                 </p>
                 <ul>
-                  <li *ngFor="let item of sellista">
+                  <li *ngFor="let item of selbebida">
                     {{item}}
                   </li>
                 </ul>
 
                 
-            <p>
-                <select name="status" [(ngModel)]="sellista">
-                <option [value]="item" *ngFor="let item of status">{{item}}</option>
-                </select>
-                </p>
-                <ul>
-                    <li *ngFor="let item of sellista">
-                    {{item}}
-                    </li>
-                </ul>
-
+           
 
                     <p>
-                        <select name="status" [(ngModel)]="sellista">
-                        <option [value]="item" *ngFor="let item of status">{{item}}</option>
+                        <select name="complemento" [(ngModel)]="selcomplemento">
+                        <option [value]="item" *ngFor="let item of complemento">{{item}}</option>
                         </select>
                         </p>
                         <ul>
-                          <li *ngFor="let item of sellista">
+                          <li *ngFor="let item of selcomplemento">
                             {{item}}
                           </li>
                         </ul>
@@ -87,7 +89,7 @@
                   <input class ="cajitas" type="text" [(ngModel)]="detallepedido.total" name='Total' placeholder="Total" required="required"></p>
               
           <p>
-            <input type="submit" (click)="edit ? editar() : registrar()" value="Agregar"></p>
+            <input type="submit" (click)="edit ? editar() : registrar()" value="Agregar"> <input type="button" onclick="location.href='http://localhost:4200/perfil'" value="Cancelar"></p>
                 </form>
       </div>
     

@@ -10,9 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  complementos:string[]=["Papas","Ensalada","Pan"];
-  bebidas:string[]=["CocaCola","Sprite","Fanta Naranja", "Cafe"];
-  tiposervicio:string[]=["Desayuno","Cena"];
+  complementos:string[]=["Ensalada Verde","Ensalada de repollo","Papa al Horno","Pure de papa","Papa frita grande","Papa frita mediana","Papa frita pequeña","Helado","Pie de piña","Hershey pie","Aros de cebolla"];
+  bebidas:string[]=["Coca Cola","Sprite","Fanta Uva","Fanta Naranja","Coca Cola Zero","Agua Pura","Frezca","Fuze Tea Durazno","Fuze Tea Mango","Fuze Tea Manzana","Agua Mineral","Coca Cola Ligth"];
+  tiposervicio:string[]=["Desayuno","Almuerzo","Cena"];
   selcomplementos:string[]=[];
   selbebidas:string[]=[];
   seltiposervicio:string[]=[];
