@@ -22,6 +22,7 @@ import { Menu2Component } from './components/menu2/menu2.component';
 import { FacturaComponent } from './components/factura/factura.component';
 import { Factura2Component } from './components/factura2/factura2.component';
 import { CocinaComponent } from './components/cocina/cocina.component';
+import { EntregaComponent } from './components/entrega/entrega.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { CocinaComponent } from './components/cocina/cocina.component';
     Menu2Component,
     FacturaComponent,
     Factura2Component,
-    CocinaComponent
+    CocinaComponent,
+    EntregaComponent
   ],
   imports: [
     BrowserModule,
